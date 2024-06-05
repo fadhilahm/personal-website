@@ -1,8 +1,14 @@
 # Personal Website
 
+## Description
+
 My own personal website to advertise my software development career.
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Deployment
+
+This project is deployed on Vercel. It will automatically deployed the latest branch in `main` branch.
+
+URL: <https://fadhilahm.dev/>
 
 ## Getting Started
 
@@ -10,29 +16,44 @@ First, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tech Stacks
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Project-scoped
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- Package Management:
+  - NPM: default package manager for Javascript.
 
-## Learn More
+### Front End
 
-To learn more about Next.js, take a look at the following resources:
+- TailwindCSS + DaisyUI
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+  Both combines the easiness of writing css and enough simple component to work from.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Git Branch Flow
 
-## Deploy on Vercel
+### List of Branch Name Patterns
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `main`
+This is the branch that is used to build the website.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- `develop`
+This is the branch that you pull from if you want to change/add something. This is mainly used to execute CI processes through github actions.
+
+- `feature/*`
+Add something new to the website.
+
+- `fix/*`
+Fix something in the website.
+
+- `hotfix/*`
+Quickly fix something without triggering all the CIs.
+
+### Typical Git Flow when Developing
+
+```md
+`main` --> `develop` --> `feature/*`
+   |               |----> `fix/*`
+   |-----> `hotfix/*`
+```
