@@ -57,3 +57,7 @@ Quickly fix something without triggering all the CIs.
    |               |----> `fix/*`
    |-----> `hotfix/*`
 ```
+
+## Development
+
+### Running github actions locally
