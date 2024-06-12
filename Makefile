@@ -1,4 +1,4 @@
-.PHONY: help run
+.PHONY: help run test
 
 default: help
 
@@ -10,3 +10,6 @@ help: ## Show list of avaiable commands
 
 run: ## Run the project
 	npm run dev
+
+test: ## Run the tests
+	npm run build
