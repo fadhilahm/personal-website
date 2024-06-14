@@ -66,7 +66,7 @@ jobs:
           Best regards,
           GitHub Actions 🤖
 
-        to: ${{ secrets.TO_EMAIL }}
+        to: ${{ secrets.EMAIL }}
         from: ${{ secrets.EMAIL }}
 
     - name: Send email on failure
@@ -102,5 +102,5 @@ jobs:
           Best regards,
           GitHub Actions 🤖
 
-        to: ${{ secrets.TO_EMAIL }}
+        to: ${{ secrets.EMAIL }}
         from: ${{ secrets.EMAIL }}
