@@ -25,6 +25,9 @@ npm run dev
 - Package Management:
   - NPM: default package manager for Javascript.
 
+- CI / CD
+  - Github actions is used to implement this. For local development, we're using `act` to simulate it.
+
 ### Front End
 
 - TailwindCSS + DaisyUI
@@ -57,3 +60,15 @@ Quickly fix something without triggering all the CIs.
    |               |----> `fix/*`
    |-----> `hotfix/*`
 ```
+
+## Development-related
+
+### Simulating Github Actions Locally
+
+`act` tool are used to simulate github-actions locally, more details regarding its configuration and how to use can be found [here](https://nektosact.com/)
+
+1. Create a new `.secrets` file in the root directory
+
+1. Using `.secrets.example` as reference, fill in `.secrets`
+
+1. `make run_github_actions_local`

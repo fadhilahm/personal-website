@@ -1,0 +1,106 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - develop
+      - 'feature/**'
+      - 'fix/**'
+  pull_request:
+    branches:
+      - develop
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18]
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run tests
+      run: npm run build
+      
+    - name: Send email on success
+      if: success()
+      uses: dawidd6/action-send-mail@v3.12.0
+      with:
+        server_address: smtp.gmail.com
+        server_port: 465
+        username: ${{ secrets.EMAIL }}
+        password: ${{ secrets.PASSWORD }}
+        subject: '🎉 GitHub Actions Job Success for ${{ github.repository }}'
+        body: |
+          Hey there! 👋
+
+          The GitHub Actions job for the repository ${{ github.repository }} has completed successfully! 🎉
+
+          **Job Summary:**
+          - Workflow: ${{ github.workflow }} 🚀
+          - Job: ${{ github.job }} ✅
+          - Run ID: ${{ github.run_id }} 🆔
+          - Run Number: ${{ github.run_number }} 🔢
+          - Event: ${{ github.event_name }} 📅
+
+          **Commit Details:**
+          - Commit: ${{ github.sha }} 🔗
+          - Author: ${{ github.actor }} 👤
+          - Message: ${{ github.event.head_commit.message }} ✉️
+
+          Check the [workflow run](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}) for more details.
+
+          Keep up the great work! 🚀
+
+          Best regards,
+          GitHub Actions 🤖
+
+        to: ${{ secrets.EMAIL }}
+        from: ${{ secrets.EMAIL }}
+
+    - name: Send email on failure
+      if: failure()
+      uses: dawidd6/action-send-mail@v3.12.0
+      with:
+        server_address: smtp.gmail.com
+        server_port: 465
+        username: ${{ secrets.EMAIL }}
+        password: ${{ secrets.PASSWORD }}
+        subject: '🚨 GitHub Actions Job Failure for ${{ github.repository }}'
+        body: |
+          Hey there! 👋
+
+          Unfortunately, the GitHub Actions job for the repository ${{ github.repository }} has failed. 😞
+
+          **Job Summary:**
+          - Workflow: ${{ github.workflow }} 🚀
+          - Job: ${{ github.job }} ❌
+          - Run ID: ${{ github.run_id }} 🆔
+          - Run Number: ${{ github.run_number }} 🔢
+          - Event: ${{ github.event_name }} 📅
+
+          **Commit Details:**
+          - Commit: ${{ github.sha }} 🔗
+          - Author: ${{ github.actor }} 👤
+          - Message: ${{ github.event.head_commit.message }} ✉️
+
+          Check the [workflow run](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}) for more details.
+
+          Don't worry, you'll get it next time! 💪
+
+          Best regards,
+          GitHub Actions 🤖
+
+        to: ${{ secrets.EMAIL }}
+        from: ${{ secrets.EMAIL }}
