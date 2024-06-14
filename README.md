@@ -65,4 +65,10 @@ Quickly fix something without triggering all the CIs.
 
 ### Simulating Github Actions Locally
 
-Run `make run_github_actions_local` to simulate every workflow. More details could be found [here](https://nektosact.com/)
+`act` tool are used to simulate github-actions locally, more details regarding its configuration and how to use can be found [here](https://nektosact.com/)
+
+1. Create a new `.secrets` file in the root directory
+
+1. Using `.secrets.example` as reference, fill in `.secrets`
+
+1. `make run_github_actions_local`
