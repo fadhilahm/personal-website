@@ -12,8 +12,8 @@ export default function StripedProgress() {
     // Define the animation that moves the stripes from right to left
     const stripeAnimation = `
       @keyframes progress-bar-stripes {
-        0% { background-position: 4rem 0; }    /* Start position - one pattern width to the right */
-        100% { background-position: 0 0; }     /* End position - original position */
+        0% { background-position: 0 0; }    /* Start position - original position */
+        100% { background-position: 4rem 0; }    /* End position - one pattern width to the right */
       }
     `;
 
