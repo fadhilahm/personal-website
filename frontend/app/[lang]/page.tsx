@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import constructionImage from '@images/construction.png';
-import LanguageSwitcher from '@/components/LanguageSwitcher';
+import LanguageSwitcher from '@components/LanguageSwitcher';
+import StripedProgress from '@components/StripedProgress';
 
 async function getMessages(locale: string) {
   try {
@@ -50,7 +51,7 @@ export default async function Home({
         </p>
         
         <div className="w-80 mx-auto">
-          <progress className="progress progress-primary h-4"></progress>
+          <StripedProgress />
         </div>
       </div>
     </main>
