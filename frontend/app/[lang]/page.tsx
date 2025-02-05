@@ -19,6 +19,19 @@ export async function generateStaticParams() {
   ];
 }
 
+export async function generateMetadata({
+  params: { lang },
+}: {
+  params: { lang: string };
+}) {
+  const messages = await getMessages(lang || 'en');
+
+  return {
+    title: messages.title,
+    description: messages.description,
+  };
+}
+
 export default async function Home({
   params: { lang },
 }: {
