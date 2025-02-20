@@ -19,9 +19,10 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"],
       "@components/*": ["./components/*"],
-      "@images/*": ["./public/images/*"]
+      "@constants/*": ["./constants/*"],
+      "@images/*": ["./public/images/*"],
+      "@/*": ["./*"],
     },
     "baseUrl": "."
   },
