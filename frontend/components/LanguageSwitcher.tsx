@@ -16,11 +16,7 @@ export default function LanguageSwitcher() {
   };
 
   return (
-    <select 
-      onChange={handleChange} 
-      value={locale}
-      className="select select-warning select-sm"
-    >
+    <select onChange={handleChange} value={locale} className="select select-warning select-sm">
       {Object.entries(LANGUAGE_NAMES).map(([code, name]) => (
         <option key={code} value={code}>
           {name}
@@ -28,4 +24,4 @@ export default function LanguageSwitcher() {
       ))}
     </select>
   );
-} 
+}

@@ -53,10 +53,7 @@ export default function StripedProgress() {
 
   return (
     <div className="w-full bg-base-300 rounded-lg overflow-hidden">
-      <div 
-        ref={progressRef}
-        className="w-full bg-primary"
-      />
+      <div ref={progressRef} className="w-full bg-primary" />
     </div>
   );
-} 
+}

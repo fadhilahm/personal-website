@@ -1,56 +1,36 @@
 {
   "extends": [
     "next/core-web-vitals",
+    "airbnb",
+    "airbnb-typescript",
     "plugin:@typescript-eslint/recommended",
-    "prettier",
     "plugin:storybook/recommended"
   ],
   "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": ["./tsconfig.json"]
+  },
   "plugins": [
-    "@typescript-eslint",
-    "import"
+    "@typescript-eslint"
   ],
   "rules": {
     "@typescript-eslint/no-unused-vars": "error",
     "@typescript-eslint/no-explicit-any": "error",
-    "import/no-unresolved": "off",
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/require-default-props": "off",
     "@typescript-eslint/no-var-requires": "off",
     "react/no-unescaped-entities": "off",
-    "import/order": [
-      "error",
-      {
-        "groups": [
-          "builtin",
-          "external",
-          "internal",
-          ["parent", "sibling"],
-          "index",
-          "object",
-          "type"
-        ],
-        "pathGroups": [
-          {
-            "pattern": "react",
-            "group": "builtin",
-            "position": "before"
-          }
-        ],
-        "pathGroupsExcludedImportTypes": ["react"],
-        "newlines-between": "always",
-        "alphabetize": {
-          "order": "asc",
-          "caseInsensitive": true
-        }
-      }
-    ]
+    "import/no-extraneous-dependencies": ["error", {
+      "devDependencies": ["**/*.stories.*", "**/*.test.*", "**/tailwind.config.*"]
+    }],
+    "react/function-component-definition": ["error", {
+      "namedComponents": ["function-declaration", "arrow-function"],
+      "unnamedComponents": "arrow-function"
+    }],
+    "import/prefer-default-export": "off",
+    "consistent-return": "off",
+    "react/no-unknown-property": ["error", { "ignore": ["jsx"] }]
   },
-  "settings": {
-    "import/resolver": {
-      "typescript": {
-        "alwaysTryTypes": true
-      }
-    }
-  }
+  "ignorePatterns": ["next.config.js"]
 }

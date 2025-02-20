@@ -8,4 +8,4 @@ const nextConfig = {};
 
 const config = withNextIntl(nextConfig);
 
-module.exports = config; 
+module.exports = config;
