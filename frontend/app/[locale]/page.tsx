@@ -1,8 +1,9 @@
 import Image from 'next/image';
-import constructionImage from '@images/construction.png';
-import StripedProgress from '@components/StripedProgress';
 import { useTranslations } from 'next-intl';
+
 import LanguageSwitcher from '@components/LanguageSwitcher';
+import StripedProgress from '@components/StripedProgress';
+import constructionImage from '@images/construction.png';
 
 export const metadata = {
   title: "Under Construction",
