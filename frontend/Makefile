@@ -18,9 +18,6 @@ help:
 	{ lastLine = $$0 }' $(MAKEFILE_LIST)
 	@printf "\n"
 
-# Install and start development server
-all: install dev
-
 # Install project dependencies
 install:
 	npm install
@@ -33,18 +30,6 @@ dev:
 build:
 	npm run build
 
-# Start production server
-start:
-	npm run start
-
-# Run ESLint to check code quality and catch potential bugs
-lint:
-	npm run lint
-
 # Format code style for consistency
 format:
 	npm run format
-
-# Remove build artifacts and dependencies
-clean:
-	rm -rf .next node_modules
