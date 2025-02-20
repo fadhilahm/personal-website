@@ -10,9 +10,7 @@
   "parserOptions": {
     "project": ["./tsconfig.json"]
   },
-  "plugins": [
-    "@typescript-eslint"
-  ],
+  "plugins": ["@typescript-eslint"],
   "rules": {
     "@typescript-eslint/no-unused-vars": "error",
     "@typescript-eslint/no-explicit-any": "error",
@@ -21,16 +19,33 @@
     "react/require-default-props": "off",
     "@typescript-eslint/no-var-requires": "off",
     "react/no-unescaped-entities": "off",
-    "import/no-extraneous-dependencies": ["error", {
-      "devDependencies": ["**/*.stories.*", "**/*.test.*", "**/tailwind.config.*"]
-    }],
-    "react/function-component-definition": ["error", {
-      "namedComponents": ["function-declaration", "arrow-function"],
-      "unnamedComponents": "arrow-function"
-    }],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": ["**/*.stories.*", "**/*.test.*", "**/tailwind.config.*"]
+      }
+    ],
+    "react/function-component-definition": [
+      "error",
+      {
+        "namedComponents": ["function-declaration", "arrow-function"],
+        "unnamedComponents": "arrow-function"
+      }
+    ],
     "import/prefer-default-export": "off",
     "consistent-return": "off",
-    "react/no-unknown-property": ["error", { "ignore": ["jsx"] }]
+    "react/no-unknown-property": ["error", { "ignore": ["jsx"] }],
+    "import/order": [
+      "error",
+      {
+        "groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
+      }
+    ]
   },
   "ignorePatterns": ["next.config.js"]
 }
