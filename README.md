@@ -10,11 +10,10 @@ The easiest way to see all available commands is to use the Makefile:
 
 Main commands:
 
-    make up      # Start all services with hot-reload
-    make build   # Rebuild and start services
-    make down    # Stop all services
-    make logs    # View service logs
-    make clean   # Clean up Docker resources
+    make up      # Start all services with hot-reload (use for daily development)
+    make build   # Rebuild and start services (use after dependency changes)
+
+For daily development, use `make up`. If you've changed dependencies or Dockerfile, use `make build`.
 
 ## Project Structure
 
