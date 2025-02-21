@@ -19,3 +19,16 @@ For daily development, use `make up`. If you've changed dependencies or Dockerfi
 
     personal-website/
     ├── frontend/    # Next.js frontend
+    └── db/         # MySQL database (managed by Docker)
+
+## Database
+
+MySQL connection details:
+
+    Host: localhost
+    Port: 3306
+    Database: personalwebsite
+    User: appuser
+    Password: apppassword
+
+Note: Database data is persisted in a Docker volume named `mysql_data`.
