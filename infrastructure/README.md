@@ -3,9 +3,43 @@
 This directory contains the Terraform configurations for deploying and managing the personal website infrastructure. The setup includes:
 
 - **Frontend**: Vercel for Next.js hosting and deployment
-- **Database**: Railway.app for PostgreSQL database
+- **Database**: Railway.app for MySQL database
 
 Note: Use 1Password externally to securely store your service tokens and secrets.
+
+## Installing Terraform
+
+### macOS (using Homebrew)
+
+```bash
+brew tap hashicorp/tap
+brew install hashicorp/tap/terraform
+```
+
+### Windows (using Chocolatey)
+
+```bash
+choco install terraform
+```
+
+### Linux
+
+```bash
+# Add HashiCorp GPG key
+curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
+
+# Add HashiCorp repository
+sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+
+# Update and install
+sudo apt-get update && sudo apt-get install terraform
+```
+
+### Verify Installation
+
+```bash
+terraform --version
+```
 
 ## Directory Structure
 
@@ -40,6 +74,7 @@ infrastructure/
 vercel_token  = "your-vercel-token"
 railway_token = "your-railway-token"
 github_repo   = "username/personal-website"
+project_name  = "personal-website"
 ```
 
 1. Initialize Terraform:
@@ -73,7 +108,7 @@ terraform apply
 ### Database Module (Railway)
 
 - Creates Railway project
-- Sets up PostgreSQL database
+- Sets up MySQL database
 - Configures environment and deployment settings
 - Provides database connection URL
 
@@ -84,6 +119,7 @@ terraform apply
 - `vercel_token`: Vercel API token
 - `railway_token`: Railway API token
 - `github_repo`: GitHub repository name
+- `project_name`: Name of the project (used for both Vercel and Railway)
 
 ### Optional Variables
 
@@ -113,17 +149,17 @@ Common issues and solutions:
    - Verify API tokens are correct and not expired
    - Ensure proper permissions are set
 
-2. **State Lock Issues**
+1. **State Lock Issues**
 
    - Run `terraform force-unlock` if needed
    - Verify no other processes are running Terraform
 
-3. **Resource Creation Failures**
+1. **Resource Creation Failures**
 
    - Check service quotas and limits
    - Verify resource naming follows allowed patterns
 
-4. **Deployment Issues**
+1. **Deployment Issues**
    - Verify GitHub repository permissions
    - Check Vercel project settings
    - Validate Railway database connection strings
