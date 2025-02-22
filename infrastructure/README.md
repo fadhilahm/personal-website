@@ -8,7 +8,7 @@ This directory contains the Terraform configurations for deploying and managing 
 
 ## Directory Structure
 
-```
+```tree
 infrastructure/
 ├── modules/                  # Reusable infrastructure components
 │   ├── frontend/            # Vercel deployment configuration
@@ -44,20 +44,20 @@ supabase_org_id        = "your-org-id"
 database_password      = "your-db-password"
 ```
 
-2. Initialize Terraform:
+1. Initialize Terraform:
 
 ```bash
 cd environments/prod
 terraform init
 ```
 
-3. Review the planned changes:
+1. Review the planned changes:
 
 ```bash
 terraform plan
 ```
 
-4. Apply the configuration:
+1. Apply the configuration:
 
 ```bash
 terraform apply

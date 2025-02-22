@@ -30,9 +30,9 @@ provider "onepassword" {
 module "frontend" {
   source = "../../modules/frontend"
 
-  project_name = "personal-website-dev"
+  project_name = "personal-website"
   github_repo  = var.github_repo
-  is_production = false
+  is_production = true
   environment_variables = {
     NEXT_PUBLIC_SUPABASE_URL = module.database.supabase_url
     NEXT_PUBLIC_SUPABASE_ANON_KEY = module.database.supabase_anon_key
@@ -42,8 +42,7 @@ module "frontend" {
 module "database" {
   source = "../../modules/database"
 
-  project_name    = "personal-website-dev"
+  project_name    = "personal-website"
   organization_id = var.supabase_org_id
-  region         = "us-east-1"
   db_password    = var.database_password
 } 
