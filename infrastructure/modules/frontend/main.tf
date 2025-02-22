@@ -10,11 +10,18 @@ terraform {
 resource "vercel_project" "frontend" {
   name      = var.project_name
   framework = "nextjs"
+  root_directory = "frontend"
   git_repository = {
     type = "github"
     repo = var.github_repo
   }
-  environment = var.environment_variables
+  environment = [
+    for key, value in var.environment_variables : {
+      key    = key
+      value  = value
+      target = ["production"]
+    }
+  ]
 }
 
 resource "vercel_deployment" "frontend" {

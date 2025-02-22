@@ -38,15 +38,12 @@ module "database" {
   source = "../../modules/database"
 
   project_name = local.project_name
+  database_url = var.database_url
 }
 
-# Outputs to verify Railway configuration
-output "railway_project_name" {
-  value = module.database.project_name
-  description = "Name of the Railway project created"
-}
-
+# Outputs to verify configuration
 output "database_connection_status" {
   value = module.database.database_url != "" ? "Database URL configured successfully" : "Database URL not configured"
   description = "Status of database connection configuration"
+  sensitive   = true
 } 

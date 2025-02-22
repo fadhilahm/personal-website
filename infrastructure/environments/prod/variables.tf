@@ -19,4 +19,10 @@ variable "project_name" {
   description = "Name of the project"
   type        = string
   default     = "personal-website"
+}
+
+variable "database_url" {
+  description = "MySQL database connection URL from Railway"
+  type        = string
+  sensitive   = true
 } 
