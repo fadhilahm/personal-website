@@ -8,10 +8,6 @@ terraform {
       source  = "supabase/supabase"
       version = "~> 0.1"
     }
-    onepassword = {
-      source  = "1password/onepassword"
-      version = "~> 1.0"
-    }
   }
 }
 
@@ -21,10 +17,6 @@ provider "vercel" {
 
 provider "supabase" {
   access_token = var.supabase_access_token
-}
-
-provider "onepassword" {
-  token = var.onepassword_token
 }
 
 module "frontend" {

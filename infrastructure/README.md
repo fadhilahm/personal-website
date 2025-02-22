@@ -4,7 +4,8 @@ This directory contains the Terraform configurations for deploying and managing 
 
 - **Frontend**: Vercel for Next.js hosting and deployment
 - **Database**: Supabase for PostgreSQL database
-- **Secrets**: 1Password for secrets management
+
+Note: Use 1Password externally to securely store your service tokens and secrets.
 
 ## Directory Structure
 
@@ -28,8 +29,8 @@ infrastructure/
 - [Terraform](https://www.terraform.io/downloads.html) (v1.0.0 or newer)
 - [Vercel Account](https://vercel.com) and API token
 - [Supabase Account](https://supabase.com) and access token
-- [1Password Account](https://1password.com) and service account token
 - GitHub repository for the project
+- 1Password (recommended) for storing service tokens securely
 
 ## Configuration
 
@@ -38,7 +39,6 @@ infrastructure/
 ```hcl
 vercel_token           = "your-vercel-token"
 supabase_access_token  = "your-supabase-token"
-onepassword_token      = "your-1password-token"
 github_repo            = "username/personal-website"
 supabase_org_id        = "your-org-id"
 database_password      = "your-db-password"
@@ -85,7 +85,6 @@ terraform apply
 
 - `vercel_token`: Vercel API token
 - `supabase_access_token`: Supabase access token
-- `onepassword_token`: 1Password service account token
 - `github_repo`: GitHub repository name
 - `supabase_org_id`: Supabase organization ID
 - `database_password`: Database password
@@ -98,7 +97,7 @@ terraform apply
 ## Security Notes
 
 - Never commit `terraform.tfvars` or any files containing secrets
-- Use 1Password for secrets management
+- Store service tokens and secrets in 1Password
 - All sensitive variables are marked with `sensitive = true`
 - Keep your state files secure and consider using remote state storage
 

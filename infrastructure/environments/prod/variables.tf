@@ -10,12 +10,6 @@ variable "supabase_access_token" {
   sensitive   = true
 }
 
-variable "onepassword_token" {
-  description = "1Password service account token"
-  type        = string
-  sensitive   = true
-}
-
 variable "github_repo" {
   description = "GitHub repository name (format: username/repo)"
   type        = string
