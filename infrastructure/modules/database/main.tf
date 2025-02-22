@@ -16,7 +16,6 @@ resource "railway_project" "main" {
 resource "railway_service" "database" {
   project_id = railway_project.main.id
   name       = "mysql"
-  environment = var.environment
 }
 
 # Outputs for verification
@@ -30,13 +29,7 @@ output "project_id" {
   description = "Railway project ID"
 }
 
-output "environment" {
-  value = railway_service.database.environment
-  description = "Environment name"
-}
-
-output "database_url" {
-  value     = railway_service.database.database_url
-  sensitive = true
-  description = "MySQL connection URL"
+output "service_id" {
+  value = railway_service.database.id
+  description = "Railway service ID for the database"
 } 

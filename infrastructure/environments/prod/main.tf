@@ -38,18 +38,12 @@ module "database" {
   source = "../../modules/database"
 
   project_name = local.project_name
-  environment  = "production"
 }
 
 # Outputs to verify Railway configuration
 output "railway_project_name" {
   value = module.database.project_name
   description = "Name of the Railway project created"
-}
-
-output "railway_environment" {
-  value = module.database.environment
-  description = "Railway environment (production/development)"
 }
 
 output "database_connection_status" {
