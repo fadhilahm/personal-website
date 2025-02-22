@@ -19,10 +19,14 @@ provider "railway" {
   token = var.railway_token
 }
 
+locals {
+  project_name = var.project_name
+}
+
 module "frontend" {
   source = "../../modules/frontend"
 
-  project_name = "personal-website"
+  project_name = local.project_name
   github_repo  = var.github_repo
   is_production = true
   environment_variables = {
@@ -33,7 +37,7 @@ module "frontend" {
 module "database" {
   source = "../../modules/database"
 
-  project_name = "personal-website"
+  project_name = local.project_name
   environment  = "production"
 }
 

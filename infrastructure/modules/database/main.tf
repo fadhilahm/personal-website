@@ -7,13 +7,15 @@ terraform {
   }
 }
 
+# Create new project
 resource "railway_project" "main" {
   name = var.project_name
 }
 
+# Add MySQL service
 resource "railway_service" "database" {
   project_id = railway_project.main.id
-  name       = "postgresql"
+  name       = "mysql"
   environment = var.environment
 }
 
@@ -25,7 +27,7 @@ output "project_name" {
 
 output "project_id" {
   value = railway_project.main.id
-  description = "Railway project ID - use this for project-specific operations"
+  description = "Railway project ID"
 }
 
 output "environment" {
@@ -36,5 +38,5 @@ output "environment" {
 output "database_url" {
   value     = railway_service.database.database_url
   sensitive = true
-  description = "Database connection URL"
+  description = "MySQL connection URL"
 } 

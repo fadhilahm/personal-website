@@ -13,4 +13,10 @@ variable "railway_token" {
 variable "github_repo" {
   description = "GitHub repository name (format: username/repo)"
   type        = string
+}
+
+variable "project_name" {
+  description = "Name of the project"
+  type        = string
+  default     = "personal-website"
 } 
