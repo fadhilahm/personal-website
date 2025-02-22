@@ -1,24 +1,40 @@
 terraform {
   required_providers {
-    supabase = {
-      source  = "supabase/supabase"
+    railway = {
+      source = "terraform-community-providers/railway"
       version = "~> 0.1"
     }
   }
 }
 
-resource "supabase_project" "main" {
-  name         = var.project_name
-  organization = var.organization_id
-  region       = var.region
-  db_password  = var.db_password
-
-  config {
-    sql_extensions = ["uuid-ossp", "pgcrypto"]
-  }
+resource "railway_project" "main" {
+  name = var.project_name
 }
 
-resource "supabase_database_password" "main" {
-  project_ref = supabase_project.main.id
-  password    = var.db_password
+resource "railway_service" "database" {
+  project_id = railway_project.main.id
+  name       = "postgresql"
+  environment = var.environment
+}
+
+# Outputs for verification
+output "project_name" {
+  value = railway_project.main.name
+  description = "Name of the Railway project"
+}
+
+output "project_id" {
+  value = railway_project.main.id
+  description = "Railway project ID - use this for project-specific operations"
+}
+
+output "environment" {
+  value = railway_service.database.environment
+  description = "Environment name"
+}
+
+output "database_url" {
+  value     = railway_service.database.database_url
+  sensitive = true
+  description = "Database connection URL"
 } 

@@ -3,7 +3,7 @@
 This directory contains the Terraform configurations for deploying and managing the personal website infrastructure. The setup includes:
 
 - **Frontend**: Vercel for Next.js hosting and deployment
-- **Database**: Supabase for PostgreSQL database
+- **Database**: Railway.app for PostgreSQL database
 
 Note: Use 1Password externally to securely store your service tokens and secrets.
 
@@ -15,8 +15,8 @@ infrastructure/
 │   ├── frontend/            # Vercel deployment configuration
 │   │   ├── main.tf         # Vercel project and deployment settings
 │   │   └── variables.tf    # Frontend module variables
-│   └── database/           # Supabase configuration
-│       ├── main.tf         # Supabase project settings
+│   └── database/           # Railway configuration
+│       ├── main.tf         # Railway project and database settings
 │       └── variables.tf    # Database module variables
 └── environments/           # Environment-specific configurations
     └── prod/              # Production environment
@@ -28,7 +28,7 @@ infrastructure/
 
 - [Terraform](https://www.terraform.io/downloads.html) (v1.0.0 or newer)
 - [Vercel Account](https://vercel.com) and API token
-- [Supabase Account](https://supabase.com) and access token
+- [Railway Account](https://railway.app) and API token
 - GitHub repository for the project
 - 1Password (recommended) for storing service tokens securely
 
@@ -37,11 +37,9 @@ infrastructure/
 1. Create a `terraform.tfvars` file in your environment directory (e.g., `environments/prod/terraform.tfvars`):
 
 ```hcl
-vercel_token           = "your-vercel-token"
-supabase_access_token  = "your-supabase-token"
-github_repo            = "username/personal-website"
-supabase_org_id        = "your-org-id"
-database_password      = "your-db-password"
+vercel_token  = "your-vercel-token"
+railway_token = "your-railway-token"
+github_repo   = "username/personal-website"
 ```
 
 1. Initialize Terraform:
@@ -72,22 +70,20 @@ terraform apply
 - Manages environment variables
 - Handles deployment configuration
 
-### Database Module (Supabase)
+### Database Module (Railway)
 
-- Creates Supabase project
-- Configures PostgreSQL database settings
-- Manages database passwords
-- Sets up necessary extensions (uuid-ossp, pgcrypto)
+- Creates Railway project
+- Sets up PostgreSQL database
+- Configures environment and deployment settings
+- Provides database connection URL
 
 ## Environment Variables
 
 ### Required Variables
 
 - `vercel_token`: Vercel API token
-- `supabase_access_token`: Supabase access token
+- `railway_token`: Railway API token
 - `github_repo`: GitHub repository name
-- `supabase_org_id`: Supabase organization ID
-- `database_password`: Database password
 
 ### Optional Variables
 
@@ -130,4 +126,4 @@ Common issues and solutions:
 4. **Deployment Issues**
    - Verify GitHub repository permissions
    - Check Vercel project settings
-   - Validate Supabase connection strings
+   - Validate Railway database connection strings

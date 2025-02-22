@@ -1,6 +1,18 @@
 variable "project_name" {
-  description = "Name of the Supabase project"
+  description = "Name of the Railway project"
   type        = string
+}
+
+variable "environment" {
+  description = "Environment name (e.g., production, development)"
+  type        = string
+  default     = "production"
+}
+
+variable "team_id" {
+  description = "Railway team ID (optional - for team projects)"
+  type        = string
+  default     = null  # Individual account by default
 }
 
 variable "organization_id" {
