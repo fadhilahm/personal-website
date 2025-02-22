@@ -18,8 +18,8 @@ For daily development, use `make up`. If you've changed dependencies or Dockerfi
 ## Project Structure
 
     personal-website/
-    ├── frontend/    # Next.js frontend
-    └── db/         # MySQL database (managed by Docker)
+    ├── frontend/               # Next.js frontend
+    └── infrastructure/         # Terraform code for the infrastructure
 
 ## Database
 
