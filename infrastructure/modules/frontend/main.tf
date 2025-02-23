@@ -24,6 +24,22 @@ resource "vercel_project" "frontend" {
   ]
 }
 
+resource "vercel_project_git" "frontend" {
+  project_id = vercel_project.frontend.id
+  
+  git_repository = {
+    type = "github"
+    repo = var.github_repo
+  }
+
+  production_branch_configuration = {
+    branch_name                   = "main"
+    auto_deployment_enabled       = false
+    comments_enabled             = true
+    pull_request_preview_enabled = true
+  }
+}
+
 resource "vercel_deployment" "frontend" {
   project_id  = vercel_project.frontend.id
   production  = var.is_production
