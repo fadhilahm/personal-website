@@ -57,20 +57,11 @@ make init
 # Show planned changes
 make plan
 
-# Apply changes
+# Apply changes without confirmation
 make apply
 
-# Format Terraform files
-make fmt
-
-# Validate Terraform configuration
-make validate
-
-# Clean Terraform files (use with caution)
-make clean
-
-# Destroy infrastructure (use with extreme caution)
-make destroy
+# Apply changes with confirmation prompt
+make apply-interactive
 ```
 
 ## Modules
