@@ -8,14 +8,18 @@ terraform {
 }
 
 resource "vercel_project" "frontend" {
-  name      = var.project_name
-  framework = "nextjs"
+  name           = var.project_name
+  framework      = "nextjs"
   root_directory = "frontend"
   git_repository = {
-    type = "github"
-    repo = var.github_repo
+    type              = "github"
+    repo              = var.github_repo
     production_branch = "main"
   }
+  build_command        = "npm run build"
+  dev_command         = "npm run dev"
+  install_command     = "npm install"
+  output_directory    = ".next"
   environment = [
     for key, value in var.environment_variables : {
       key    = key
@@ -29,6 +33,7 @@ resource "vercel_deployment" "frontend" {
   project_id  = vercel_project.frontend.id
   production  = var.is_production
   ref         = var.git_branch
+  delete_on_destroy = true
 }
 
 resource "vercel_project_domain" "domain" {
