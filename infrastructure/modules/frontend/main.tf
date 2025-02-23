@@ -28,4 +28,16 @@ resource "vercel_deployment" "frontend" {
   project_id  = vercel_project.frontend.id
   production  = var.is_production
   ref         = var.git_branch
+}
+
+resource "vercel_project_domain" "domain" {
+  for_each = toset(var.domains)
+
+  project_id = vercel_project.frontend.id
+  domain     = each.value
+}
+
+output "domains" {
+  value = [for domain in vercel_project_domain.domain : domain.domain]
+  description = "List of configured domains"
 } 

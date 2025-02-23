@@ -25,4 +25,10 @@ variable "database_url" {
   description = "MySQL database connection URL from Railway"
   type        = string
   sensitive   = true
+}
+
+variable "domains" {
+  description = "List of custom domains to add to the Vercel project"
+  type        = list(string)
+  default     = []
 } 

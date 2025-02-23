@@ -32,6 +32,7 @@ module "frontend" {
   environment_variables = {
     DATABASE_URL = module.database.database_url
   }
+  domains = ["fadhilahm.dev"]
 }
 
 module "database" {
@@ -46,4 +47,9 @@ output "database_connection_status" {
   value = module.database.database_url != "" ? "Database URL configured successfully" : "Database URL not configured"
   description = "Status of database connection configuration"
   sensitive   = true
+}
+
+output "configured_domains" {
+  value       = module.frontend.domains
+  description = "List of configured domains for the Vercel project"
 } 

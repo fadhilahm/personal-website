@@ -24,4 +24,10 @@ variable "git_branch" {
   description = "Git branch to deploy"
   type        = string
   default     = "main"
+}
+
+variable "domains" {
+  description = "List of custom domains to add to the Vercel project"
+  type        = list(string)
+  default     = []
 } 
