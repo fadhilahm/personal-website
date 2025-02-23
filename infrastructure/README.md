@@ -85,7 +85,7 @@ The custom domain (fadhilahm.dev) is configured in Vercel. After applying the Te
 
 1. Configure your DNS settings at your domain registrar:
 
-   ```
+   ```dns
    Type    Name    Value
    A       @       76.76.21.21
    CNAME   www     cname.vercel-dns.com.

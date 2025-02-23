@@ -6,18 +6,25 @@ ENV ?= prod
 # Directory paths
 ENV_DIR = environments/$(ENV)
 
+# Colors
+BLUE := \033[34m
+CYAN := \033[36m
+GREEN := \033[32m
+RED := \033[31m
+NC := \033[0m
+
 # Help command
 help:
-	@echo "Available commands:"
-	@echo "  make init              - Initialize Terraform in the specified environment"
-	@echo "  make plan             - Show execution plan"
-	@echo "  make apply            - Apply changes without confirmation prompt"
-	@echo "  make apply-interactive - Apply changes with confirmation prompt"
+	@echo "$(CYAN)Infrastructure Management Commands:$(NC)"
+	@echo "$(GREEN)init             $(NC)  Initialize Terraform in the specified environment"
+	@echo "$(GREEN)plan             $(NC)  Show execution plan"
+	@echo "$(GREEN)apply            $(NC)  Apply changes without confirmation prompt"
+	@echo "$(GREEN)apply-interactive$(NC)  Apply changes with confirmation prompt"
 	@echo ""
-	@echo "Usage:"
-	@echo "  make [command] ENV=prod    - Run command for production environment"
+	@echo "$(BLUE)Usage:$(NC)"
+	@echo "  make [command] ENV=prod"
 	@echo ""
-	@echo "Note: Default environment is 'prod' if ENV is not specified"
+	@echo "$(RED)Note:$(NC) Default environment is 'prod' if ENV is not specified"
 
 # Initialize Terraform
 init:
