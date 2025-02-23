@@ -22,6 +22,7 @@ resource "vercel_project" "frontend" {
       target = ["production"]
     }
   ]
+  ignore_command = "if [ $VERCEL_GIT_COMMIT_REF == \"main\" ]; then exit 0; else exit 1; fi"
 }
 
 resource "vercel_deployment" "frontend" {
