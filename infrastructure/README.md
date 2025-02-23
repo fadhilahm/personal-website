@@ -4,42 +4,15 @@ This directory contains the Terraform configurations for deploying and managing 
 
 - **Frontend**: Vercel for Next.js hosting and deployment
 - **Database**: Railway.app for MySQL database
+- **Domain**: Custom domain configuration with Vercel
 
-Note: Use 1Password externally to securely store your service tokens and secrets.
+## Prerequisites
 
-## Installing Terraform
-
-### macOS (using Homebrew)
-
-```bash
-brew tap hashicorp/tap
-brew install hashicorp/tap/terraform
-```
-
-### Windows (using Chocolatey)
-
-```bash
-choco install terraform
-```
-
-### Linux
-
-```bash
-# Add HashiCorp GPG key
-curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
-
-# Add HashiCorp repository
-sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
-
-# Update and install
-sudo apt-get update && sudo apt-get install terraform
-```
-
-### Verify Installation
-
-```bash
-terraform --version
-```
+1. [Terraform](https://www.terraform.io/downloads.html) (v1.0.0 or newer)
+2. [Vercel Account](https://vercel.com) and API token
+3. [Railway Account](https://railway.app) and API token
+4. GitHub repository for the project
+5. Make (usually pre-installed on Unix-based systems)
 
 ## Directory Structure
 
@@ -50,21 +23,13 @@ infrastructure/
 │   │   ├── main.tf         # Vercel project and deployment settings
 │   │   └── variables.tf    # Frontend module variables
 │   └── database/           # Railway configuration
-│       ├── main.tf         # Railway project and database settings
+│       ├── main.tf         # Database settings
 │       └── variables.tf    # Database module variables
 └── environments/           # Environment-specific configurations
     └── prod/              # Production environment
         ├── main.tf        # Main configuration file
         └── variables.tf   # Environment variables
 ```
-
-## Prerequisites
-
-- [Terraform](https://www.terraform.io/downloads.html) (v1.0.0 or newer)
-- [Vercel Account](https://vercel.com) and API token
-- [Railway Account](https://railway.app) and API token
-- GitHub repository for the project
-- 1Password (recommended) for storing service tokens securely
 
 ## Configuration
 
@@ -75,25 +40,37 @@ vercel_token  = "your-vercel-token"
 railway_token = "your-railway-token"
 github_repo   = "username/personal-website"
 project_name  = "personal-website"
+database_url  = "your-railway-mysql-url"
 ```
 
-1. Initialize Terraform:
+## Usage
+
+The infrastructure can be managed using the provided Makefile commands:
 
 ```bash
-cd environments/prod
-terraform init
-```
+# Show available commands
+make help
 
-1. Review the planned changes:
+# Initialize Terraform (do this first)
+make init
 
-```bash
-terraform plan
-```
+# Show planned changes
+make plan
 
-1. Apply the configuration:
+# Apply changes
+make apply
 
-```bash
-terraform apply
+# Format Terraform files
+make fmt
+
+# Validate Terraform configuration
+make validate
+
+# Clean Terraform files (use with caution)
+make clean
+
+# Destroy infrastructure (use with extreme caution)
+make destroy
 ```
 
 ## Modules
@@ -103,63 +80,80 @@ terraform apply
 - Configures Vercel project for Next.js deployment
 - Sets up GitHub integration for automatic deployments
 - Manages environment variables
-- Handles deployment configuration
+- Configures custom domain (fadhilahm.dev)
 
-### Database Module (Railway)
+### Database Module
 
-- Creates Railway project
-- Sets up MySQL database
-- Configures environment and deployment settings
-- Provides database connection URL
+- Manages Railway MySQL database connection
+- Handles database URL configuration
+- Ensures secure storage of database credentials
 
-## Environment Variables
+## Domain Configuration
 
-### Required Variables
+The custom domain (fadhilahm.dev) is configured in Vercel. After applying the Terraform configuration:
 
-- `vercel_token`: Vercel API token
-- `railway_token`: Railway API token
-- `github_repo`: GitHub repository name
-- `project_name`: Name of the project (used for both Vercel and Railway)
+1. Configure your DNS settings at your domain registrar:
 
-### Optional Variables
+   ```
+   Type    Name    Value
+   A       @       76.76.21.21
+   CNAME   www     cname.vercel-dns.com.
+   ```
 
-- `git_branch`: Git branch to deploy (default: main)
-- `is_production`: Whether this is a production deployment (default: false)
+2. Wait for DNS propagation (usually takes a few minutes to a few hours)
 
 ## Security Notes
 
 - Never commit `terraform.tfvars` or any files containing secrets
-- Store service tokens and secrets in 1Password
+- Store service tokens and secrets securely
 - All sensitive variables are marked with `sensitive = true`
-- Keep your state files secure and consider using remote state storage
+- Use environment variables or a secure secrets manager for production deployments
 
 ## Maintenance
 
 - Regularly update provider versions
 - Review and rotate secrets periodically
+- Keep Terraform state files secure
 - Monitor resource usage and costs
-- Keep Terraform state files backed up
 
 ## Troubleshooting
 
-Common issues and solutions:
+1. **Terraform Init Issues**
 
-1. **Provider Authentication Failures**
+   - Ensure you have the correct provider versions
+   - Check your internet connection
+   - Verify provider credentials
 
-   - Verify API tokens are correct and not expired
-   - Ensure proper permissions are set
+2. **Deployment Failures**
 
-1. **State Lock Issues**
-
-   - Run `terraform force-unlock` if needed
-   - Verify no other processes are running Terraform
-
-1. **Resource Creation Failures**
-
-   - Check service quotas and limits
-   - Verify resource naming follows allowed patterns
-
-1. **Deployment Issues**
+   - Check Vercel deployment logs
    - Verify GitHub repository permissions
-   - Check Vercel project settings
-   - Validate Railway database connection strings
+   - Ensure database URL is correct
+
+3. **Domain Issues**
+   - Verify DNS configuration
+   - Check Vercel domain settings
+   - Allow time for DNS propagation
+
+## Contributing
+
+1. Format code before committing:
+
+   ```bash
+   make fmt
+   ```
+
+2. Validate changes:
+
+   ```bash
+   make validate
+   ```
+
+3. Test changes in isolation before applying to production
+
+## Backup and Recovery
+
+- Terraform state is stored locally by default
+- Consider using remote state storage for team environments
+- Keep backup copies of your configuration
+- Document any manual changes made outside of Terraform
