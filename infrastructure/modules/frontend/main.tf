@@ -11,11 +11,6 @@ resource "vercel_project" "frontend" {
   name           = var.project_name
   framework      = "nextjs"
   root_directory = "frontend"
-  git_repository = {
-    type              = "github"
-    repo              = var.github_repo
-    production_branch = "main"
-  }
   build_command        = "npm run build"
   dev_command         = "npm run dev"
   install_command     = "npm install"
