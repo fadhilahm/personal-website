@@ -13,6 +13,22 @@ This directory contains the Terraform configurations for deploying and managing 
 3. [Railway Account](https://railway.app) and API token
 4. GitHub repository for the project
 5. Make (usually pre-installed on Unix-based systems)
+6. [1Password CLI](https://1password.com/downloads/command-line/) for secrets management:
+
+   ```bash
+   # macOS (using Homebrew)
+   brew install --cask 1password-cli
+
+   # Debian/Ubuntu
+   curl -sS https://downloads.1password.com/linux/keys/1password.asc | \
+   sudo gpg --dearmor --output /usr/share/keyrings/1password-archive-keyring.gpg
+   echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/1password-archive-keyring.gpg] https://downloads.1password.com/linux/debian/$(dpkg --print-architecture) stable main" | \
+   sudo tee /etc/apt/sources.list.d/1password.list
+   sudo apt update && sudo apt install 1password-cli
+
+   # After installation, sign in to your account:
+   op signin
+   ```
 
 ## Directory Structure
 
@@ -33,15 +49,7 @@ infrastructure/
 
 ## Configuration
 
-1. Create a `terraform.tfvars` file in your environment directory (e.g., `environments/prod/terraform.tfvars`):
-
-```hcl
-vercel_token  = "your-vercel-token"
-railway_token = "your-railway-token"
-github_repo   = "username/personal-website"
-project_name  = "personal-website"
-database_url  = "your-railway-mysql-url"
-```
+TODO: fill this in
 
 ## Usage
 
@@ -100,6 +108,34 @@ The custom domain (fadhilahm.dev) is configured in Vercel. After applying the Te
 - All sensitive variables are marked with `sensitive = true`
 - Use environment variables or a secure secrets manager for production deployments
 
+## Secrets Management with 1Password
+
+This project uses 1Password CLI for secure secrets management. The setup includes:
+
+1. **Login to 1Password CLI**:
+
+   ```bash
+   eval $(op signin)
+   ```
+
+1. **Required Secrets**:
+
+   - TODO: fill this in
+
+1. **Using Secrets**:
+
+   - TODO: fill this in
+
+1. **Adding New Secrets**:
+
+   - TODO: fill this in
+
+1. **Security Best Practices**:
+   - Always use the latest version of 1Password CLI
+   - Regularly rotate secrets
+   - Use separate vaults for different projects
+   - Grant minimal required access to team members
+
 ## Maintenance
 
 - Regularly update provider versions
@@ -109,42 +145,19 @@ The custom domain (fadhilahm.dev) is configured in Vercel. After applying the Te
 
 ## Troubleshooting
 
-1. **Terraform Init Issues**
+1. **Terraform Init Issues**:
 
    - Ensure you have the correct provider versions
    - Check your internet connection
    - Verify provider credentials
 
-2. **Deployment Failures**
+1. **Deployment Failures**:
 
    - Check Vercel deployment logs
    - Verify GitHub repository permissions
    - Ensure database URL is correct
 
-3. **Domain Issues**
+1. **Domain Issues**:
    - Verify DNS configuration
    - Check Vercel domain settings
    - Allow time for DNS propagation
-
-## Contributing
-
-1. Format code before committing:
-
-   ```bash
-   make fmt
-   ```
-
-2. Validate changes:
-
-   ```bash
-   make validate
-   ```
-
-3. Test changes in isolation before applying to production
-
-## Backup and Recovery
-
-- Terraform state is stored locally by default
-- Consider using remote state storage for team environments
-- Keep backup copies of your configuration
-- Document any manual changes made outside of Terraform
