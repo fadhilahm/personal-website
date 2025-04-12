@@ -62,6 +62,9 @@ make help
 # Initialize Terraform (do this first)
 make init
 
+# Fetch terraform variables from 1Password (required before any deployment)
+make fetch-vars
+
 # Show planned changes
 make plan
 
@@ -71,6 +74,42 @@ make apply
 # Apply changes with confirmation prompt
 make apply-interactive
 ```
+
+### Deployment Steps
+
+1. **Sign in to 1Password CLI** (if not already signed in):
+
+   ```bash
+   eval $(op signin)
+   ```
+
+2. **Fetch terraform variables**:
+
+   ```bash
+   make fetch-vars
+   ```
+
+   This command will fetch the required variables from 1Password and save them to `environments/prod/terraform.tfvars`
+
+3. **Initialize Terraform**:
+
+   ```bash
+   make init
+   ```
+
+4. **Review the planned changes**:
+
+   ```bash
+   make plan
+   ```
+
+5. **Apply the changes**:
+
+   ```bash
+   make apply  # Without confirmation
+   # OR
+   make apply-interactive  # With confirmation prompt
+   ```
 
 ## Modules
 

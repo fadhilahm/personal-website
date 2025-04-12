@@ -1,4 +1,4 @@
-.PHONY: init plan apply apply-interactive help
+.PHONY: init plan apply apply-interactive help fetch-vars
 
 # Colors for formatting
 YELLOW := \033[33m
@@ -8,12 +8,15 @@ RESET := \033[0m
 # Default environment
 ENV ?= prod
 
+# Default 1Password vault
+OP_VAULT ?= "personal-website"
+
 # Directory paths
 ENV_DIR = environments/$(ENV)
 
 # Show available commands and their descriptions
 help:
-	@printf "\nUsage: make ${CYAN}[target]${RESET} ENV=${YELLOW}[environment]${RESET}\n\nTargets:\n"
+	@printf "\nUsage: make ${CYAN}[target]${RESET} ENV=${YELLOW}[environment]${RESET} OP_VAULT=${YELLOW}[vault_name]${RESET}\n\nTargets:\n"
 	@awk '/^[a-zA-Z0-9_-]+:/ { \
 		helpMessage = match(lastLine, /^# (.*)/); \
 		if (helpMessage) { \
@@ -22,7 +25,14 @@ help:
 		} \
 	} \
 	{ lastLine = $$0 }' $(MAKEFILE_LIST)
-	@printf "\nDefault environment is '${YELLOW}prod${RESET}' if ENV is not specified\n\n"
+	@printf "\nDefault environment is '${YELLOW}prod${RESET}' if ENV is not specified\n"
+	@printf "Default 1Password vault is '${YELLOW}personal-website${RESET}' if OP_VAULT is not specified\n\n"
+
+# Fetch terraform.tfvars from 1Password
+fetch-vars:
+	@echo "Fetching terraform.tfvars from 1Password vault '$(OP_VAULT)'..."
+	@op read "op://$(OP_VAULT)/rjwtygvp5o7yxfpxpkvrq6h52a/environment_variables" > $(ENV_DIR)/terraform.tfvars
+	@echo "Successfully fetched terraform.tfvars to $(ENV_DIR)/terraform.tfvars"
 
 # Initialize Terraform in the specified environment
 init:
