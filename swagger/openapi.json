@@ -1,0 +1,46 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Personal Website API",
+    "description": "API documentation for the personal website",
+    "version": "1.0.0",
+    "contact": {
+      "name": "API Support",
+      "email": "support@fadhilahm.dev"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://fadhilahm.dev/api",
+      "description": "Production server"
+    },
+    {
+      "url": "https://api.fadhilahm.dev",
+      "description": "Production API server"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "apiKey": {
+        "type": "apiKey",
+        "name": "X-API-Key",
+        "in": "header",
+        "description": "API key for authentication"
+      }
+    }
+  },
+  "security": [
+    {
+      "apiKey": []
+    }
+  ],
+  "paths": {
+    "/health": {
+      "$ref": "./paths/health.json"
+    }
+  }
+}

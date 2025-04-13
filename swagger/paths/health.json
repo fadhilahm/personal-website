@@ -1,0 +1,45 @@
+{
+  "get": {
+    "summary": "Health check endpoint",
+    "description": "Returns the health status of the application",
+    "operationId": "getHealth",
+    "tags": ["Health"],
+    "security": [
+      {
+        "apiKey": []
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "Successful response",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../schemas/responses/health.json"
+            }
+          }
+        }
+      },
+      "401": {
+        "description": "Unauthorized - Invalid or missing API key",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../schemas/responses/error.json"
+            }
+          }
+        }
+      },
+      "429": {
+        "description": "Too Many Requests - Rate limit exceeded",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../schemas/responses/error.json"
+            }
+          }
+        }
+      }
+    }
+  }
+}

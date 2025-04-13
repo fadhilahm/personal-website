@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "description": "Health check response containing application status information",
+  "properties": {
+    "status": {
+      "type": "string",
+      "description": "Current health status of the application",
+      "example": "healthy",
+      "enum": ["healthy", "degraded", "unhealthy"]
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Current server time in ISO 8601 format",
+      "example": "2024-04-13T02:30:00.000Z"
+    },
+    "uptime": {
+      "type": "number",
+      "description": "Application uptime in seconds",
+      "example": 123.45
+    }
+  },
+  "required": ["status", "timestamp", "uptime"]
+}
