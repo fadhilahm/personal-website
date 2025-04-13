@@ -1,4 +1,4 @@
-.PHONY: help install lint clean
+.PHONY: help install-openapi-typescript generate-types lint clean
 
 # Colors for formatting
 YELLOW := \033[33m
@@ -12,17 +12,19 @@ help:
 		helpMessage = match(lastLine, /^# (.*)/); \
 		if (helpMessage) { \
 			target = substr($$1, 0, index($$1, ":")); \
-			printf "  ${YELLOW}%-10s${RESET} %s\n", target, substr(lastLine, RSTART + 2, RLENGTH); \
+			printf "  ${YELLOW}%-20s${RESET} %s\n", target, substr(lastLine, RSTART + 2, RLENGTH); \
 		} \
 	} \
 	{ lastLine = $$0 }' $(MAKEFILE_LIST)
 	@printf "\n"
 
-# Install required tools for OpenAPI validation
-install:
-	@printf "${CYAN}Installing OpenAPI tools...${RESET}\n"
-	npm install -g @redocly/cli
-	@printf "${CYAN}Installation complete!${RESET}\n"
+# Install typegen-generator (openapi-typescript) globally
+install-typegen:
+	npm install -g openapi-typescript
+
+# Generate TypeScript types from OpenAPI spec
+generate-types:
+	openapi-typescript openapi.json --output ../../frontend/src/types/api.ts
 
 # Lint OpenAPI specification
 lint:
