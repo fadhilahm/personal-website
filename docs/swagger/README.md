@@ -4,21 +4,20 @@ This directory contains the OpenAPI (Swagger) documentation for the personal web
 
 ## Structure
 
-```
+```tree
 .
 ├── swagger/
-│   ├── openapi.json          # Main OpenAPI specification file
-│   ├── paths/                # API endpoint path definitions
-│   │   └── health.json      # Health check endpoint definition
-│   ├── schemas/              # Directory for reusable schema definitions
-│   │   ├── responses/        # Response schemas
-│   │   │   └── health.json  # Health check response schema
+│   ├── openapi.json         # Main OpenAPI specification file
+│   ├── paths/               # API endpoint path definitions
+│   │   └── *.json          # Individual endpoint definitions
+│   ├── schemas/             # Directory for reusable schema definitions
+│   │   ├── responses/       # Response schemas
 │   │   ├── requests/        # Request schemas
 │   │   └── models/          # Shared model schemas
-│   └── README.md             # This file
-└── frontend/                 # Next.js frontend application
+│   └── README.md            # This file
+└── frontend/                # Next.js frontend application
     └── app/
-        └── api/              # API routes implementation
+        └── api/             # API routes implementation
 ```
 
 ## Usage
@@ -53,7 +52,7 @@ export default function ApiDocs() {
    - `schemas/responses/`: Response schemas
    - `schemas/requests/`: Request body/parameter schemas
    - `schemas/models/`: Shared model schemas
-4. Use relative `$ref` paths to reference schemas (e.g., `../schemas/responses/health.json`)
+4. Use relative `$ref` paths to reference schemas
 
 ### Best Practices
 
