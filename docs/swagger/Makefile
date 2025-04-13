@@ -24,7 +24,7 @@ install-typegen:
 
 # Generate TypeScript types from OpenAPI spec
 generate-types:
-	openapi-typescript openapi.json --output ../../frontend/src/types/api.ts
+	openapi-typescript openapi.json --output ../../frontend/types/api.ts
 
 # Lint OpenAPI specification
 lint:

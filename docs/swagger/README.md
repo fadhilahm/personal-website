@@ -49,7 +49,7 @@ The OpenAPI specification can be used to generate TypeScript types for the front
    make generate-types
    ```
 
-This will create TypeScript types in `frontend/src/types/api.ts` that match your OpenAPI specification. These types can be used in your frontend code for type-safe API calls.
+This will create TypeScript types in `frontend/types/api.ts` that match your OpenAPI specification. These types can be used in your frontend code for type-safe API calls.
 
 Example usage in frontend code:
 
