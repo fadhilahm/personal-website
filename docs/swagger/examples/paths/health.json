@@ -1,0 +1,8 @@
+{
+  "path": "/health",
+  "method": "GET",
+  "description": "Health check endpoint",
+  "response": {
+    "$ref": "../schemas/responses/health.json"
+  }
+}

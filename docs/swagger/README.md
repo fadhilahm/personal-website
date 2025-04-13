@@ -7,31 +7,38 @@ This directory contains the OpenAPI (Swagger) documentation for the personal web
 ```tree
 .
 ├── swagger/
-│   ├── openapi.json         # Main OpenAPI specification file
-│   ├── paths/               # API endpoint path definitions
-│   │   └── *.json          # Individual endpoint definitions
-│   ├── schemas/             # Directory for reusable schema definitions
-│   │   ├── responses/       # Response schemas
-│   │   ├── requests/        # Request schemas
-│   │   └── models/          # Shared model schemas
-│   └── README.md            # This file
-└── frontend/                # Next.js frontend application
+│   ├── examples/            # Example implementations
+│   │   ├── paths/          # Example endpoint definitions
+│   │   │   └── health.json # Example health endpoint
+│   │   └── schemas/        # Example schema definitions
+│   │       └── responses/   # Example response schemas
+│   │           └── error.json # Example error response
+│   ├── openapi.json        # Main OpenAPI specification file
+│   ├── paths/              # API endpoint path definitions
+│   │   └── *.json         # Individual endpoint definitions
+│   ├── schemas/            # Directory for reusable schema definitions
+│   │   ├── responses/      # Response schemas
+│   │   ├── requests/       # Request schemas
+│   │   └── models/         # Shared model schemas
+│   ├── Makefile           # Build and validation commands
+│   └── README.md           # This file
+└── frontend/               # Next.js frontend application
     └── app/
-        └── api/             # API routes implementation
+        └── api/            # API routes implementation
 ```
 
 ## Usage
 
 ### View Documentation
 
-1. Install the Swagger UI package in the frontend directory:
+1. Install required packages using the Makefile:
 
 ```bash
-cd frontend
-npm install swagger-ui-react swagger-ui-dist
+cd swagger
+make install
 ```
 
-1. Create a documentation page in your Next.js app:
+2. Create a documentation page in your Next.js app:
 
 ```tsx
 // frontend/app/api-docs/page.tsx
@@ -54,6 +61,22 @@ export default function ApiDocs() {
    - `schemas/models/`: Shared model schemas
 4. Use relative `$ref` paths to reference schemas
 
+### Examples
+
+The `examples/` directory contains template implementations that you can use as a reference:
+
+- `examples/paths/health.json`: Example health check endpoint
+- `examples/schemas/responses/health.json`: Example health response schema
+- `examples/schemas/responses/error.json`: Example error response schema
+
+These examples demonstrate:
+
+- Proper endpoint structure
+- Security configuration
+- Response schemas
+- Error handling
+- Documentation best practices
+
 ### Best Practices
 
 1. Keep paths and schemas in separate files
@@ -66,12 +89,11 @@ export default function ApiDocs() {
 
 ## Validation
 
-To validate your OpenAPI specification:
+To validate your OpenAPI specification, use the Makefile:
 
 ```bash
-npm install -g @redocly/cli
 cd swagger
-redocly lint openapi.json
+make lint
 ```
 
 ## Tools
