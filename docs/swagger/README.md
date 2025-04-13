@@ -31,7 +31,7 @@ cd frontend
 npm install swagger-ui-react swagger-ui-dist
 ```
 
-2. Create a documentation page in your Next.js app:
+1. Create a documentation page in your Next.js app:
 
 ```tsx
 // frontend/app/api-docs/page.tsx
