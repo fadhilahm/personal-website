@@ -9,10 +9,8 @@ This directory contains the OpenAPI (Swagger) documentation for the personal web
 ├── swagger/
 │   ├── examples/            # Example implementations
 │   │   ├── paths/          # Example endpoint definitions
-│   │   │   └── health.json # Example health endpoint
 │   │   └── schemas/        # Example schema definitions
-│   │       └── responses/   # Example response schemas
-│   │           └── error.json # Example error response
+│   │       └── responses/  # Example response schemas
 │   ├── openapi.json        # Main OpenAPI specification file
 │   ├── paths/              # API endpoint path definitions
 │   │   └── *.json         # Individual endpoint definitions
@@ -38,7 +36,7 @@ cd swagger
 make install
 ```
 
-2. Create a documentation page in your Next.js app:
+1. Create a documentation page in your Next.js app:
 
 ```tsx
 // frontend/app/api-docs/page.tsx
@@ -63,16 +61,9 @@ export default function ApiDocs() {
 
 ### Examples
 
-The `examples/` directory contains template implementations that you can use as a reference:
-
-- `examples/paths/health.json`: Example health check endpoint
-- `examples/schemas/responses/health.json`: Example health response schema
-- `examples/schemas/responses/error.json`: Example error response schema
-
-These examples demonstrate:
+The `examples/` directory contains template implementations that you can use as a reference. These examples demonstrate:
 
 - Proper endpoint structure
-- Security configuration
 - Response schemas
 - Error handling
 - Documentation best practices
