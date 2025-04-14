@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 
-import LanguageSwitcher from '@components/LanguageSwitcher';
-import StripedProgress from '@components/StripedProgress';
+import LanguageSwitcher from '@components/features/i18n/LanguageSwitcher';
+import StripedProgress from '@components/ui/StripedProgress';
 import constructionImage from '@images/construction.png';
 
 export const metadata = {
