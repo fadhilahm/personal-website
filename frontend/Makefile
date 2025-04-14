@@ -1,4 +1,4 @@
-.PHONY: help install dev build start lint clean format
+.PHONY: help install dev build start lint clean format storybook
 
 # Colors for formatting
 YELLOW := \033[33m
@@ -33,3 +33,7 @@ build:
 # Format code style for consistency
 format:
 	npm run format
+
+# Run Storybook in development mode
+storybook:
+	npm run storybook

@@ -54,6 +54,26 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
+## Storybook
+
+This project uses [Storybook](https://storybook.js.org/) for component development and documentation. Storybook provides an isolated environment for developing and testing UI components. We don't need to build storybook for production.
+
+### Running Storybook
+
+You can start Storybook using the Makefile:
+
+```bash
+make storybook
+```
+
+Storybook will be available at [http://localhost:6006](http://localhost:6006).
+
+### Storybook Structure
+
+- `.storybook/` - Contains Storybook configuration files
+- `stories/` - Contains component stories and documentation
+- Components are documented with their props, variants, and usage examples
+
 ## Features
 
 - Next.js 14 with App Router
@@ -61,7 +81,7 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 - Tailwind CSS for styling
 - DaisyUI for components
 - i18n support for internationalization
-- Storybook for component development
+- Storybook for component development and documentation
 - ESLint for code quality
 - Hot reload support in both local and Docker environments
 
@@ -78,7 +98,8 @@ frontend/
 ├── messages/     # Translation messages
 ├── providers/    # React context providers
 ├── public/       # Static assets
-└── stories/      # Storybook stories
+├── stories/      # Storybook stories
+└── .storybook/   # Storybook configuration
 ```
 
 ## Available Scripts
@@ -86,11 +107,13 @@ frontend/
 The project includes a Makefile for easier command execution. Here are the main commands:
 
 ```bash
-make install  # Install project dependencies
-make dev      # Run development server with hot reload
-make build    # Build application for production
-make format   # Format code style for consistency
-make help     # Show all available commands
+make install        # Install project dependencies
+make dev           # Run development server with hot reload
+make build         # Build application for production
+make format        # Format code style for consistency
+make storybook     # Run Storybook in development mode
+make build-storybook # Build Storybook for production
+make help          # Show all available commands
 ```
 
 Alternatively, you can use npm scripts directly:
