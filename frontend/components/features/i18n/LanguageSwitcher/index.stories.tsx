@@ -1,28 +1,18 @@
 import type { Meta, StoryObj } from '@storybook/react';
-
 import { DEFAULT_LOCALE, LANGUAGE_NAMES } from '@constants/i18n';
-
-// Create a mock version of LanguageSwitcher for Storybook
-function MockLanguageSwitcher() {
-  return (
-    <select className="select select-warning select-sm text-white">
-      {Object.entries(LANGUAGE_NAMES).map(([code, name]) => (
-        <option key={code} value={code}>
-          {name}
-        </option>
-      ))}
-    </select>
-  );
-}
+import LanguageSwitcher from './';
 
 const meta = {
   title: 'Components/LanguageSwitcher',
-  component: MockLanguageSwitcher,
+  component: LanguageSwitcher,
   parameters: {
     layout: 'centered',
+    nextIntl: {
+      locale: 'en',
+    },
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof MockLanguageSwitcher>;
+} satisfies Meta<typeof LanguageSwitcher>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
