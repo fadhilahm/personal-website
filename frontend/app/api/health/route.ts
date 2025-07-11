@@ -1,27 +1,25 @@
-import { NextApiRequest, NextApiResponse } from 'next';
+import { NextRequest, NextResponse } from 'next/server';
+
 import { paths } from '@/types/api';
 
 type HealthResponse = paths['/health']['get']['responses'][200]['content']['application/json'];
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<HealthResponse>
-) {
+export async function GET(_request: NextRequest) {
   try {
     const response: HealthResponse = {
       status: 'healthy',
       timestamp: new Date().toISOString(),
-      uptime: process.uptime()
+      uptime: process.uptime(),
     };
 
-    res.status(200).json(response);
+    return NextResponse.json(response, { status: 200 });
   } catch (error) {
     const response: HealthResponse = {
-      status: 'unhealthy', 
+      status: 'unhealthy',
       timestamp: new Date().toISOString(),
-      uptime: process.uptime()
+      uptime: process.uptime(),
     };
 
-    res.status(503).json(response);
+    return NextResponse.json(response, { status: 503 });
   }
-} 
+}

@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { DEFAULT_LOCALE, LANGUAGE_NAMES } from '@constants/i18n';
+
+import { LANGUAGE_NAMES } from '@constants/i18n';
+
 import LanguageSwitcher from './';
 
 const meta = {

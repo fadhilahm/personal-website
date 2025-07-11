@@ -1,8 +1,6 @@
 {
   "extends": [
     "next/core-web-vitals",
-    "airbnb",
-    "airbnb-typescript",
     "plugin:@typescript-eslint/recommended",
     "plugin:storybook/recommended"
   ],
@@ -12,7 +10,14 @@
   },
   "plugins": ["@typescript-eslint"],
   "rules": {
-    "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_",
+        "caughtErrorsIgnorePattern": "^_"
+      }
+    ],
     "@typescript-eslint/no-explicit-any": "error",
     "react/react-in-jsx-scope": "off",
     "react/jsx-props-no-spreading": "off",
