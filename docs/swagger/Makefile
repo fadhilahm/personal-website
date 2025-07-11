@@ -1,4 +1,4 @@
-.PHONY: help install-openapi-typescript generate-types lint clean
+.PHONY: help install-typegen generate-types lint clean
 
 # Colors for formatting
 YELLOW := \033[33m

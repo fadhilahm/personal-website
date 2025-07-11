@@ -1,4 +1,4 @@
-.PHONY: help up build down logs clean
+.PHONY: help up build
 
 # Colors for formatting
 YELLOW := \033[33m
