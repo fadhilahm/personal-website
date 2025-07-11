@@ -112,15 +112,5 @@ make dev           # Run development server with hot reload
 make build         # Build application for production
 make format        # Format code style for consistency
 make storybook     # Run Storybook in development mode
-make build-storybook # Build Storybook for production
 make help          # Show all available commands
 ```
-
-Alternatively, you can use npm scripts directly:
-
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run start` - Start production server
-- `npm run lint` - Run ESLint
-- `npm run storybook` - Start Storybook server
-- `npm run test` - Run tests

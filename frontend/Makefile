@@ -1,4 +1,4 @@
-.PHONY: help install dev build start lint clean format storybook
+.PHONY: help install dev build format storybook
 
 # Colors for formatting
 YELLOW := \033[33m

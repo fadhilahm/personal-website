@@ -47,10 +47,6 @@ infrastructure/
         └── variables.tf   # Environment variables
 ```
 
-## Configuration
-
-TODO: fill this in
-
 ## Usage
 
 The infrastructure can be managed using the provided Makefile commands:
@@ -156,47 +152,3 @@ This project uses 1Password CLI for secure secrets management. The setup include
    ```bash
    eval $(op signin)
    ```
-
-1. **Required Secrets**:
-
-   - TODO: fill this in
-
-1. **Using Secrets**:
-
-   - TODO: fill this in
-
-1. **Adding New Secrets**:
-
-   - TODO: fill this in
-
-1. **Security Best Practices**:
-   - Always use the latest version of 1Password CLI
-   - Regularly rotate secrets
-   - Use separate vaults for different projects
-   - Grant minimal required access to team members
-
-## Maintenance
-
-- Regularly update provider versions
-- Review and rotate secrets periodically
-- Keep Terraform state files secure
-- Monitor resource usage and costs
-
-## Troubleshooting
-
-1. **Terraform Init Issues**:
-
-   - Ensure you have the correct provider versions
-   - Check your internet connection
-   - Verify provider credentials
-
-1. **Deployment Failures**:
-
-   - Check Vercel deployment logs
-   - Verify GitHub repository permissions
-   - Ensure database URL is correct
-
-1. **Domain Issues**:
-   - Verify DNS configuration
-   - Check Vercel domain settings
-   - Allow time for DNS propagation
