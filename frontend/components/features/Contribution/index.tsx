@@ -1,16 +1,11 @@
-import { type FC} from 'react';
-import GitHubCalendar from 'react-github-calendar';
+import { env } from '@config/env';
+import { type FC } from 'react';
 
-import { Theme } from '@constants/theme';
 
-type ContributionProps = {
-  username: string;
-  theme: Theme;
-  year: number;
-};
+import { Contribution as ContributionComponent } from './Contribution';
 
-export const Contribution: FC<ContributionProps> = ({ username, theme, year }) => {
-  return <GitHubCalendar username={username} colorScheme={theme} year={year} />;
+export const Contribution: FC = () => {
+  return <ContributionComponent username={env.NEXT_PUBLIC_GITHUB_USERNAME} />;
 };
 
 export default Contribution;
