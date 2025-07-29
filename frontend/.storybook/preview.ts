@@ -1,6 +1,7 @@
 import type { Preview } from '@storybook/react';
+
 import '../app/[locale]/globals.css';
-import { DEFAULT_LOCALE,  } from '../constants/i18n';
+import { DEFAULT_LOCALE } from '../constants/i18n';
 import nextIntl from './next-intl';
 
 const preview: Preview = {
@@ -24,7 +25,7 @@ const preview: Preview = {
         },
       ],
     },
-    Initia
+    initialLocale: DEFAULT_LOCALE,
     nextIntl,
   },
 };
