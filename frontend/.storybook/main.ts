@@ -1,9 +1,5 @@
 import type { StorybookConfig } from '@storybook/nextjs';
 
-const githubUsername = process.env.NEXT_PUBLIC_GITHUB_USERNAME || '';
-
-console.log('githubUsername', githubUsername);
-
 const config: StorybookConfig = {
   stories: [
     '../stories/**/*.mdx',
@@ -22,9 +18,5 @@ const config: StorybookConfig = {
     options: {},
   },
   staticDirs: ['../public'],
-  env: config => ({
-    ...config,
-    NEXT_PUBLIC_GITHUB_USERNAME: githubUsername,
-  }),
 };
 export default config;

@@ -20,8 +20,12 @@ const preview: Preview = {
           value: '#ffffff',
         },
         {
+          name: 'gray',
+          value: '#6b7280',
+        },
+        {
           name: 'dark',
-          value: '#232323', // base-200 from your theme
+          value: '#232323',
         },
       ],
     },

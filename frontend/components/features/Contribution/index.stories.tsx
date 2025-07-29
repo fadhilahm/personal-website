@@ -43,14 +43,14 @@ export const LightTheme: Story = {
       },
     },
     backgrounds: {
-      default: 'light',
+      default: 'gray',
     },
   },
 };
 
 export const CustomYear: Story = {
   args: {
-    year: 2023,
+    year: 2024,
   },
   parameters: {
     docs: {
