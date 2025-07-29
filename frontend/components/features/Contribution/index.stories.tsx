@@ -9,4 +9,16 @@ export default {
 
 type Story = StoryObj<typeof Contribution>;
 
-export const Default: Story = {};
+export const Default: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story: 'A component that displays a user\'s GitHub contribution calendar.',
+      },
+    },
+    layout: 'centered',
+    backgrounds: {
+      default: 'dark',
+    },
+  },
+};

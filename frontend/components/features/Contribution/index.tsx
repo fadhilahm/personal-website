@@ -1,3 +1,5 @@
+import GitHubCalendar from 'react-github-calendar';
+
 export const Contribution = () => {
-  return <div>Contribution</div>;
+  return <GitHubCalendar username="fadhilahm" />;
 };
