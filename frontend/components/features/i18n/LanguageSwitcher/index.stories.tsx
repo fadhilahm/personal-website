@@ -12,6 +12,13 @@ const meta = {
     nextIntl: {
       locale: 'en',
     },
+    nextjs: {
+      appDirectory: true,
+      navigation: {
+        pathname: '/mock-path',
+        segments: [],
+      },
+    },
   },
   tags: ['autodocs'],
 } satisfies Meta<typeof LanguageSwitcher>;

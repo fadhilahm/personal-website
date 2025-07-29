@@ -25,7 +25,12 @@ const preview: Preview = {
         },
       ],
     },
-    initialLocale: DEFAULT_LOCALE,
+    nextjs: {
+      appDirectory: true,
+      navigation: {
+        pathname: '/',
+      },
+    },
     nextIntl,
   },
 };
