@@ -108,7 +108,7 @@ This project follows consistent naming conventions to maintain code organization
 
 ### Component Folders
 
-- **Component folders**: Use **PascalCase** (e.g., `LanguageSwitcher`, `StripedProgress`, `Contribution`)
+- **Component folders**: Use **PascalCase** (e.g., `LanguageSwitcher`, `Contribution`)
 - **Organizational folders**: Use **lowercase** (e.g., `components`, `features`, `ui`, `common`, `layout`)
 
 ### File Naming
@@ -130,9 +130,6 @@ components/
 │       ├── index.tsx
 │       └── index.stories.tsx
 ├── ui/                         # organizational folder (lowercase)
-│   └── StripedProgress/        # component folder (PascalCase)
-│       ├── index.tsx
-│       └── index.stories.tsx
 └── layout/                     # organizational folder (lowercase)
 ```
 

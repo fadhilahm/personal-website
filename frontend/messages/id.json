@@ -1,8 +1,7 @@
 {
   "page": {
     "home": {
-      "title": "Dalam Pembangunan",
-      "description": "Saya saat ini sedang membangun portfolio untuk menampilkan pekerjaan saya. Tunggu untuk koleksi proyek dan pengalaman yang menarik!"
+      "contributions": "Kontribusi GitHub"
     }
   }
 }

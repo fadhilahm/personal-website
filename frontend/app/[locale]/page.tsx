@@ -1,9 +1,7 @@
-import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 
+import Contribution from '@components/features/Contribution';
 import LanguageSwitcher from '@components/features/i18n/LanguageSwitcher';
-import StripedProgress from '@components/ui/StripedProgress';
-import constructionImage from '@images/construction.png';
 
 export const metadata = {
   title: 'Under Construction',
@@ -21,29 +19,13 @@ export default function Home() {
           <LanguageSwitcher />
         </div>
 
-        <div className="w-60 sm:w-72 lg:w-80 mx-auto transform hover:scale-105 transition-transform duration-300">
-          <Image
-            src={constructionImage}
-            alt={t('title')}
-            className="w-full h-auto drop-shadow-2xl"
-            priority
-          />
-        </div>
-
-        <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black text-primary animate-pulse min-h-[40px] sm:min-h-[56px] lg:min-h-[72px]">
-          <span className="text-warning">🚧</span>
-          {' '}
-          {t('title')}
-          {' '}
-          <span className="text-warning">🚧</span>
-        </h1>
-
-        <p className="text-base sm:text-lg lg:text-xl text-base-content font-medium px-2 min-h-[48px] sm:min-h-[64px] lg:min-h-[72px]">
-          {t('description')}
-        </p>
-
-        <div className="w-60 sm:w-72 lg:w-80 mx-auto">
-          <StripedProgress />
+        <div className="w-full max-w-[280px] sm:max-w-[480px] lg:max-w-[640px] mx-auto">
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-primary mb-4">
+            {t('contributions')}
+          </h2>
+          <div className="bg-base-100 p-4 rounded-lg shadow-lg">
+            <Contribution />
+          </div>
         </div>
       </div>
     </main>
