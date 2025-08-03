@@ -31,6 +31,7 @@ module "frontend" {
   is_production = true
   environment_variables = {
     DATABASE_URL = module.database.database_url
+    NEXT_PUBLIC_GITHUB_USERNAME = var.github_username
   }
   domains = ["fadhilahm.dev"]
 }

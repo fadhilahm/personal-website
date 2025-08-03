@@ -31,4 +31,9 @@ variable "domains" {
   description = "List of custom domains to add to the Vercel project"
   type        = list(string)
   default     = []
+}
+
+variable "github_username" {
+  description = "GitHub username for public environment variables"
+  type        = string
 } 
