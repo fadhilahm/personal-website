@@ -1,7 +1,7 @@
-import { Theme } from '@constants/theme';
 import { type FC } from 'react';
 import GitHubCalendar from 'react-github-calendar';
 
+import { Theme } from '@constants/theme';
 
 type ContributionProps = {
   username: string;
