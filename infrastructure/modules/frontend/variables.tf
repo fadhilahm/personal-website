@@ -9,7 +9,25 @@ variable "github_repo" {
 }
 
 variable "environment_variables" {
-  description = "Environment variables for the Vercel project"
+  description = "Environment variables for all environments (production, preview, development)"
+  type        = map(string)
+  default     = {}
+}
+
+variable "production_only_variables" {
+  description = "Environment variables for production environment only"
+  type        = map(string)
+  default     = {}
+}
+
+variable "preview_only_variables" {
+  description = "Environment variables for preview environment only"
+  type        = map(string)
+  default     = {}
+}
+
+variable "development_only_variables" {
+  description = "Environment variables for development environment only"
   type        = map(string)
   default     = {}
 }

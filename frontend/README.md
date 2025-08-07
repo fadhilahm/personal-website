@@ -102,6 +102,43 @@ frontend/
 └── .storybook/   # Storybook configuration
 ```
 
+## Naming Conventions
+
+This project follows consistent naming conventions to maintain code organization and readability:
+
+### Component Folders
+
+- **Component folders**: Use **PascalCase** (e.g., `LanguageSwitcher`, `Contribution`)
+- **Organizational folders**: Use **lowercase** (e.g., `components`, `features`, `ui`, `common`, `layout`)
+
+### File Naming
+
+- **Component files**: `index.tsx` (main component file)
+- **Story files**: `index.stories.tsx` (Storybook stories)
+- **Test files**: `index.test.tsx` (when applicable)
+
+### Examples
+
+```tree
+components/
+├── features/                   # organizational folder (lowercase)
+│   ├── i18n/                   # organizational folder (lowercase)
+│   │   └── LanguageSwitcher/   # component folder (PascalCase)
+│   │       ├── index.tsx
+│   │       └── index.stories.tsx
+│   └── Contribution/           # component folder (PascalCase)
+│       ├── index.tsx
+│       └── index.stories.tsx
+├── ui/                         # organizational folder (lowercase)
+└── layout/                     # organizational folder (lowercase)
+```
+
+This structure ensures:
+
+- Clear separation between components and organizational folders
+- Consistency with React/TypeScript best practices
+- Easy identification of actual components vs. directory structure
+
 ## Available Scripts
 
 The project includes a Makefile for easier command execution. Here are the main commands:

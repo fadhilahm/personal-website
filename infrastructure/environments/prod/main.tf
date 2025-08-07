@@ -30,6 +30,10 @@ module "frontend" {
   github_repo  = var.github_repo
   is_production = true
   environment_variables = {
+    NEXT_PUBLIC_GITHUB_USERNAME = var.github_username
+  }
+  
+  production_only_variables = {
     DATABASE_URL = module.database.database_url
   }
   domains = ["fadhilahm.dev"]

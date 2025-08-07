@@ -15,7 +15,8 @@
     "next": "15.1.6",
     "next-intl": "^3.4.1",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-github-calendar": "^4.5.9"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.4",

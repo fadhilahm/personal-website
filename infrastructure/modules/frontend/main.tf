@@ -20,13 +20,7 @@ resource "vercel_project" "frontend" {
   dev_command         = "npm run dev"
   install_command     = "npm install"
   output_directory    = ".next"
-  environment = [
-    for key, value in var.environment_variables : {
-      key    = key
-      value  = value
-      target = ["production"]
-    }
-  ]
+  # Environment variables will be managed separately using vercel_project_environment_variable resources
 }
 
 resource "vercel_deployment" "frontend" {
@@ -34,6 +28,46 @@ resource "vercel_deployment" "frontend" {
   production  = var.is_production
   ref         = var.git_branch
   delete_on_destroy = true
+}
+
+# Environment variables for all environments (production, preview, development)
+resource "vercel_project_environment_variable" "environment_variables" {
+  for_each = var.environment_variables
+
+  project_id = vercel_project.frontend.id
+  key        = each.key
+  value      = each.value
+  target     = ["production", "preview", "development"]
+}
+
+# Production-only environment variables
+resource "vercel_project_environment_variable" "production_only" {
+  for_each = var.production_only_variables
+
+  project_id = vercel_project.frontend.id
+  key        = each.key
+  value      = each.value
+  target     = ["production"]
+}
+
+# Preview-only environment variables  
+resource "vercel_project_environment_variable" "preview_only" {
+  for_each = var.preview_only_variables
+
+  project_id = vercel_project.frontend.id
+  key        = each.key
+  value      = each.value
+  target     = ["preview"]
+}
+
+# Development-only environment variables
+resource "vercel_project_environment_variable" "development_only" {
+  for_each = var.development_only_variables
+
+  project_id = vercel_project.frontend.id
+  key        = each.key
+  value      = each.value
+  target     = ["development"]
 }
 
 resource "vercel_project_domain" "domain" {

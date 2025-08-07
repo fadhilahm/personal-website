@@ -113,8 +113,47 @@ make apply-interactive
 
 - Configures Vercel project for Next.js deployment
 - Sets up GitHub integration for automatic deployments
-- Manages environment variables
+- Manages environment variables for all environments (production, preview, development)
 - Configures custom domain (fadhilahm.dev)
+
+#### Environment Variables
+
+The frontend module supports different types of environment variables:
+
+- **All Environments**: Variables available in production, preview, and development
+- **Production Only**: Variables only available in production deployments
+- **Preview Only**: Variables only available in preview deployments (PRs, branches)
+- **Development Only**: Variables only available for local development
+
+Example configuration:
+
+```terraform
+module "frontend" {
+  source = "../../modules/frontend"
+
+  # Variables for ALL environments (production, preview, development)
+  environment_variables = {
+    NEXT_PUBLIC_GITHUB_USERNAME = var.github_username
+    DATABASE_URL                = module.database.database_url
+  }
+
+  # Production-only variables
+  production_only_variables = {
+    ANALYTICS_ID = "prod-analytics-id"
+    SENTRY_DSN   = "prod-sentry-dsn"
+  }
+
+  # Preview-only variables
+  preview_only_variables = {
+    ANALYTICS_ID = "staging-analytics-id"
+  }
+
+  # Development-only variables
+  development_only_variables = {
+    DEBUG_MODE = "true"
+  }
+}
+```
 
 ### Database Module
 
