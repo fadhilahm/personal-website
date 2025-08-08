@@ -71,7 +71,7 @@ Storybook will be available at [http://localhost:6006](http://localhost:6006).
 ### Storybook Structure
 
 - `.storybook/` - Contains Storybook configuration files
-- `stories/` - Contains component stories and documentation
+- Component stories are co-located with their components (e.g., `index.stories.tsx`)
 - Components are documented with their props, variants, and usage examples
 
 ## Features
@@ -89,17 +89,128 @@ Storybook will be available at [http://localhost:6006](http://localhost:6006).
 
 ```tree
 frontend/
-├── app/          # Next.js app router pages
-├── components/   # Reusable React components
-├── config/       # Configuration files
-├── constants/    # Constant values and enums
-├── hooks/        # Custom React hooks
-├── i18n/         # Internationalization setup
-├── messages/     # Translation messages
-├── providers/    # React context providers
-├── public/       # Static assets
-├── stories/      # Storybook stories
-└── .storybook/   # Storybook configuration
+├── app/                    # Next.js app router pages
+├── components/             # React components organized by atomic design
+│   ├── design-system/      # Reusable design system components
+│   │   ├── atoms/          # Basic building blocks (Button, Input, Typography)
+│   │   ├── molecules/      # Simple combinations (FormField, Card, SearchBox)
+│   │   └── organisms/      # Complex components (Header, Footer, Navigation)
+│   └── features/           # Feature-specific business components
+│       ├── contribution/   # GitHub contribution components
+│       └── i18n/          # Internationalization components
+├── config/                 # Configuration files
+├── constants/              # Constant values and enums
+├── hooks/                  # Custom React hooks
+├── i18n/                   # Internationalization setup
+├── messages/               # Translation messages
+├── providers/              # React context providers
+├── public/                 # Static assets
+└── .storybook/             # Storybook configuration
+```
+
+## UI Component Architecture
+
+This project uses a **hybrid approach** combining **Atomic Design principles** with **Feature-Based organization** for optimal maintainability and scalability.
+
+### Design System Components (`components/design-system/`)
+
+Following atomic design methodology, our design system is organized into three levels:
+
+#### **Atoms** (`design-system/atoms/`)
+
+Basic building blocks that cannot be broken down further:
+
+- **Button** - All button variants and styles
+- **Input** - Form input elements
+- **Typography** - Headings, text, links
+- **Icon** - Icon components
+- **Avatar** - User avatar displays
+
+#### **Molecules** (`design-system/molecules/`)
+
+Simple combinations of atoms that form functional UI components:
+
+- **FormField** - Label + Input + Error message
+- **SearchBox** - Input + Search button
+- **Card** - Container with consistent styling
+- **PriceDisplay** - Price + Currency + Discount formatting
+- **Rating** - Stars + Review count
+
+#### **Organisms** (`design-system/organisms/`)
+
+Complex, reusable components that combine molecules and atoms:
+
+- **Header** - Site navigation and branding
+- **Footer** - Site footer with links and info
+- **Navigation** - Main navigation menus
+- **Modal** - Popup dialogs and overlays
+- **DataTable** - Complex data display with sorting/filtering
+
+### Feature Components (`components/features/`)
+
+Business-specific components organized by domain functionality:
+
+#### **Contribution** (`features/contribution/`)
+
+GitHub contribution-related components:
+
+- Integration with GitHub API
+- Contribution calendar displays
+- Repository statistics
+
+#### **Internationalization** (`features/i18n/`)
+
+Language and localization components:
+
+- Language switcher
+- Locale-specific formatting
+- Translation utilities
+
+### Component Organization Principles
+
+1. **Reusability**: Design system components are highly reusable across features
+2. **Separation of Concerns**: Business logic stays in features, UI patterns in design system
+3. **Scalability**: New features get their own directory, new UI patterns extend design system
+4. **Co-location**: Each component includes its stories, tests, and styles in the same directory
+
+### When to Use Each Level
+
+| Component Type        | Use When                                     | Example                    |
+| --------------------- | -------------------------------------------- | -------------------------- |
+| **Atom**              | Single responsibility, no business logic     | Button, Input, Typography  |
+| **Molecule**          | Simple combination of 2-5 atoms              | FormField, SearchBox, Card |
+| **Organism**          | Complex reusable UI, 5+ components           | Header, Footer, DataTable  |
+| **Feature Component** | Business-specific logic and domain knowledge | Contribution, UserProfile  |
+
+### File Structure Example
+
+```tree
+components/
+├── design-system/
+│   ├── atoms/
+│   │   └── Button/
+│   │       ├── index.tsx           # Component implementation
+│   │       ├── Button.stories.tsx  # Storybook documentation
+│   │       └── Button.test.tsx     # Unit tests
+│   ├── molecules/
+│   │   └── FormField/
+│   │       ├── index.tsx
+│   │       └── FormField.stories.tsx
+│   └── organisms/
+│       └── Header/
+│           ├── index.tsx
+│           └── Header.stories.tsx
+└── features/
+    ├── contribution/
+    │   └── Contribution/
+    │       ├── index.tsx
+    │       ├── Contribution.tsx
+    │       ├── index.stories.tsx
+    │       └── index.test.tsx
+    └── i18n/
+        └── LanguageSwitcher/
+            ├── index.tsx
+            └── index.stories.tsx
 ```
 
 ## Naming Conventions
@@ -109,7 +220,7 @@ This project follows consistent naming conventions to maintain code organization
 ### Component Folders
 
 - **Component folders**: Use **PascalCase** (e.g., `LanguageSwitcher`, `Contribution`)
-- **Organizational folders**: Use **lowercase** (e.g., `components`, `features`, `ui`, `common`, `layout`)
+- **Organizational folders**: Use **lowercase** with hyphens for multi-word names (e.g., `components`, `design-system`, `features`, `atoms`, `molecules`, `organisms`)
 
 ### File Naming
 
@@ -121,16 +232,30 @@ This project follows consistent naming conventions to maintain code organization
 
 ```tree
 components/
-├── features/                   # organizational folder (lowercase)
-│   ├── i18n/                   # organizational folder (lowercase)
-│   │   └── LanguageSwitcher/   # component folder (PascalCase)
+├── design-system/
+│   ├── atoms/
+│   │   └── Button/
 │   │       ├── index.tsx
-│   │       └── index.stories.tsx
-│   └── Contribution/           # component folder (PascalCase)
-│       ├── index.tsx
-│       └── index.stories.tsx
-├── ui/                         # organizational folder (lowercase)
-└── layout/                     # organizational folder (lowercase)
+│   │       └── Button.stories.tsx
+│   ├── molecules/
+│   │   └── FormField/
+│   │       ├── index.tsx
+│   │       └── FormField.stories.tsx
+│   └── organisms/
+│       └── Header/
+│           ├── index.tsx
+│           └── Header.stories.tsx
+└── features/
+    ├── contribution/
+    │   └── Contribution/
+    │       ├── index.tsx
+    │       ├── Contribution.tsx
+    │       ├── index.stories.tsx
+    │       └── index.test.tsx
+    └── i18n/
+        └── LanguageSwitcher/
+            ├── index.tsx
+            └── index.stories.tsx
 ```
 
 This structure ensures:
@@ -138,6 +263,8 @@ This structure ensures:
 - Clear separation between components and organizational folders
 - Consistency with React/TypeScript best practices
 - Easy identification of actual components vs. directory structure
+- Scalable architecture that grows with your application
+- Clear boundaries between reusable design system and business features
 
 ## Available Scripts
 
