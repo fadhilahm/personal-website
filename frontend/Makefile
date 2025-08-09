@@ -1,4 +1,4 @@
-.PHONY: help install dev build format storybook
+.PHONY: help install dev build format storybook test test-watch test-coverage
 
 # Colors for formatting
 YELLOW := \033[33m
@@ -37,3 +37,15 @@ format:
 # Run Storybook in development mode
 storybook:
 	npm run storybook
+
+# Run all tests
+test:
+	npm run test
+
+# Run tests in watch mode
+test-watch:
+	npm run test:watch
+
+# Generate test coverage report
+test-coverage:
+	npm run test:coverage

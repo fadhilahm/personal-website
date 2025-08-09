@@ -54,25 +54,101 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-## Storybook
+## Component Testing
 
-This project uses [Storybook](https://storybook.js.org/) for component development and documentation. Storybook provides an isolated environment for developing and testing UI components. We don't need to build storybook for production.
+This project follows a **comprehensive testing strategy** using multiple tools to ensure component quality and reliability.
 
-### Running Storybook
+### Testing Approach
 
-You can start Storybook using the Makefile:
+We use a **three-tier testing strategy**:
+
+1. **Visual Testing** - Storybook for component development and visual regression
+2. **Unit Testing** - Jest + React Testing Library for component behavior
+3. **Interactive Testing** - Storybook interactions for user workflows
+
+### Storybook (Visual Testing)
+
+[Storybook](https://storybook.js.org/) provides isolated component development and visual testing.
 
 ```bash
-make storybook
+make storybook  # Start Storybook at http://localhost:6006
 ```
 
-Storybook will be available at [http://localhost:6006](http://localhost:6006).
+#### Storybook Structure
 
-### Storybook Structure
+- `.storybook/` - Configuration files
+- `*.stories.tsx` - Component stories co-located with components
+- Stories document props, variants, and usage examples
 
-- `.storybook/` - Contains Storybook configuration files
-- Component stories are co-located with their components (e.g., `index.stories.tsx`)
-- Components are documented with their props, variants, and usage examples
+### Unit Testing
+
+Unit tests focus on component behavior, props handling, and user interactions.
+
+```bash
+make test        # Run all tests
+make test:watch  # Run tests in watch mode
+make test:coverage # Generate coverage report
+```
+
+#### Testing Guidelines
+
+**What to Test:**
+
+- Component renders correctly with different props
+- User interactions trigger expected behavior
+- Conditional rendering based on props/state
+- Accessibility attributes and behavior
+
+**What NOT to Test:**
+
+- Implementation details (internal state, methods)
+- Third-party library behavior
+- Styling (use Storybook for visual testing)
+
+#### Test File Structure
+
+```tree
+components/
+└── features/
+    └── Contribution/
+        ├── index.tsx           # Component
+        ├── index.stories.tsx   # Storybook stories
+        └── index.test.tsx      # Unit tests
+```
+
+#### Example Test
+
+```typescript
+import { render, screen } from '@testing-library/react';
+import { Contribution } from './index';
+
+describe('Contribution', () => {
+  it('renders with username prop', () => {
+    render(<Contribution username="testuser" />);
+    expect(screen.getByRole('img')).toBeInTheDocument();
+  });
+
+  it('handles missing username gracefully', () => {
+    render(<Contribution username="" />);
+    expect(screen.getByText(/no contributions/i)).toBeInTheDocument();
+  });
+});
+```
+
+### Interactive Testing
+
+Use Storybook's interaction testing for complex user workflows:
+
+```typescript
+// In your .stories.tsx file
+export const WithInteraction: Story = {
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await userEvent.click(canvas.getByRole('button'));
+    await expect(canvas.getByText('Success')).toBeInTheDocument();
+  },
+};
+```
 
 ## Features
 
@@ -276,5 +352,8 @@ make dev           # Run development server with hot reload
 make build         # Build application for production
 make format        # Format code style for consistency
 make storybook     # Run Storybook in development mode
+make test          # Run all tests
+make test-watch    # Run tests in watch mode
+make test-coverage # Generate test coverage report
 make help          # Show all available commands
 ```
