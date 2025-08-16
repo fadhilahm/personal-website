@@ -150,6 +150,43 @@ export const WithInteraction: Story = {
 };
 ```
 
+## Design System
+
+### Color Palette
+
+The project uses a carefully curated color palette that maintains brand consistency while ensuring excellent accessibility across light and dark modes.
+
+#### Core Brand Colors
+
+- **Primary**: `#CE1126` (Indonesian Red) - Official flag red for branding & CTAs
+- **Secondary**: `#1F2937` (Charcoal) - Professional dark gray for structure & text
+- **Accent**: `#3B82F6` (Blue) - Tech blue for links, AI chat & interactive elements
+
+#### Light Mode Backgrounds
+
+- **Primary**: `#FFFFFF` (Pure White) - Main page background
+- **Secondary**: `#F8FAFC` (Soft Gray) - Section backgrounds
+- **Tertiary**: `#F1F5F9` (Light Gray) - Cards & containers
+
+#### Dark Mode Backgrounds
+
+- **Primary**: `#0F172A` (Deep Slate) - Main page background
+- **Secondary**: `#1E293B` (Dark Gray) - Section backgrounds
+- **Tertiary**: `#334155` (Medium Gray) - Cards & containers
+
+#### Text Colors (Light → Dark)
+
+- **Primary**: `#0F172A` → `#F8FAFC` (Main text)
+- **Secondary**: `#475569` → `#CBD5E1` (Supporting text)
+- **Tertiary**: `#64748B` → `#94A3B8` (Captions/metadata)
+- **Inverse**: `#FFFFFF` → `#0F172A` (Text on colored backgrounds)
+
+#### Supporting Colors
+
+- **Success**: `#059669` → `#10B981` (Green for achievements)
+- **Warning**: `#F59E0B` → `#FBBF24` (Orange for learning status)
+- **Borders**: `#E2E8F0` → `#334155` (Subtle boundaries)
+
 ## Features
 
 - Next.js 14 with App Router
