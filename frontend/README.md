@@ -74,6 +74,10 @@ We use a **three-tier testing strategy**:
 make storybook  # Start Storybook at http://localhost:6006
 ```
 
+### Implementation
+
+The implementation of the component testing is currently being thought.
+
 #### Storybook Structure
 
 - `.storybook/` - Configuration files
