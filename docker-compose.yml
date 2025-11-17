@@ -11,6 +11,12 @@ services:
       - ./frontend:/app
       - /app/node_modules
       - /app/.next
+    develop:
+      watch:
+        - path: ./frontend/package.json
+          action: rebuild
+        - path: ./frontend/package-lock.json
+          action: rebuild
     environment:
       - NEXT_PUBLIC_GITHUB_USERNAME=${NEXT_PUBLIC_GITHUB_USERNAME}
     command: npm run dev
