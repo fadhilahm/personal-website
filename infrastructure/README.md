@@ -1,19 +1,13 @@
 # Infrastructure Configuration
 
-This directory contains the Terraform configurations for deploying and managing the personal website infrastructure. The setup includes:
-
-- **Frontend**: Vercel for Next.js hosting and deployment
-- **Database**: Railway.app for MySQL database
-- **Domain**: Custom domain configuration with Vercel
+This directory contains the Terraform configurations for deploying and managing the personal website infrastructure.
 
 ## Prerequisites
 
 1. [Terraform](https://www.terraform.io/downloads.html) (v1.0.0 or newer)
-2. [Vercel Account](https://vercel.com) and API token
-3. [Railway Account](https://railway.app) and API token
-4. GitHub repository for the project
-5. Make (usually pre-installed on Unix-based systems)
-6. [1Password CLI](https://1password.com/downloads/command-line/) for secrets management:
+2. GitHub repository for the project
+3. Make (usually pre-installed on Unix-based systems)
+4. [1Password CLI](https://1password.com/downloads/command-line/) for secrets management:
 
    ```bash
    # macOS (using Homebrew)
@@ -35,12 +29,9 @@ This directory contains the Terraform configurations for deploying and managing 
 ```tree
 infrastructure/
 ├── modules/                  # Reusable infrastructure components
-│   ├── frontend/            # Vercel deployment configuration
-│   │   ├── main.tf         # Vercel project and deployment settings
-│   │   └── variables.tf    # Frontend module variables
-│   └── database/           # Railway configuration
-│       ├── main.tf         # Database settings
-│       └── variables.tf    # Database module variables
+│   └── frontend/            # Frontend deployment configuration
+│       ├── main.tf         # Frontend project and deployment settings
+│       └── variables.tf    # Frontend module variables
 └── environments/           # Environment-specific configurations
     └── prod/              # Production environment
         ├── main.tf        # Main configuration file
@@ -109,9 +100,9 @@ make apply-interactive
 
 ## Modules
 
-### Frontend Module (Vercel)
+### Frontend Module
 
-- Configures Vercel project for Next.js deployment
+- Configures frontend project for Next.js deployment
 - Sets up GitHub integration for automatic deployments
 - Manages environment variables for all environments (production, preview, development)
 - Configures custom domain (fadhilahm.dev)
@@ -134,7 +125,6 @@ module "frontend" {
   # Variables for ALL environments (production, preview, development)
   environment_variables = {
     NEXT_PUBLIC_GITHUB_USERNAME = var.github_username
-    DATABASE_URL                = module.database.database_url
   }
 
   # Production-only variables
@@ -155,25 +145,7 @@ module "frontend" {
 }
 ```
 
-### Database Module
 
-- Manages Railway MySQL database connection
-- Handles database URL configuration
-- Ensures secure storage of database credentials
-
-## Domain Configuration
-
-The custom domain (fadhilahm.dev) is configured in Vercel. After applying the Terraform configuration:
-
-1. Configure your DNS settings at your domain registrar:
-
-   ```dns
-   Type    Name    Value
-   A       @       76.76.21.21
-   CNAME   www     cname.vercel-dns.com.
-   ```
-
-2. Wait for DNS propagation (usually takes a few minutes to a few hours)
 
 ## Security Notes
 
