@@ -5,9 +5,13 @@ This directory contains the Terraform configurations for deploying and managing 
 ## Prerequisites
 
 1. [Terraform](https://www.terraform.io/downloads.html) (v1.0.0 or newer)
-2. GitHub repository for the project
-3. Make (usually pre-installed on Unix-based systems)
-4. [1Password CLI](https://1password.com/downloads/command-line/) for secrets management:
+
+   ```bash
+   brew install terraform
+   ```
+
+1. Make (usually pre-installed on Unix-based systems)
+1. [1Password CLI](https://1password.com/downloads/command-line/) for secrets management:
 
    ```bash
    # macOS (using Homebrew)
@@ -39,28 +43,6 @@ infrastructure/
 ```
 
 ## Usage
-
-The infrastructure can be managed using the provided Makefile commands:
-
-```bash
-# Show available commands
-make help
-
-# Initialize Terraform (do this first)
-make init
-
-# Fetch terraform variables from 1Password (required before any deployment)
-make fetch-vars
-
-# Show planned changes
-make plan
-
-# Apply changes without confirmation
-make apply
-
-# Apply changes with confirmation prompt
-make apply-interactive
-```
 
 ### Deployment Steps
 
@@ -107,52 +89,11 @@ make apply-interactive
 - Manages environment variables for all environments (production, preview, development)
 - Configures custom domain (fadhilahm.dev)
 
-#### Environment Variables
-
-The frontend module supports different types of environment variables:
-
-- **All Environments**: Variables available in production, preview, and development
-- **Production Only**: Variables only available in production deployments
-- **Preview Only**: Variables only available in preview deployments (PRs, branches)
-- **Development Only**: Variables only available for local development
-
-Example configuration:
-
-```terraform
-module "frontend" {
-  source = "../../modules/frontend"
-
-  # Variables for ALL environments (production, preview, development)
-  environment_variables = {
-    NEXT_PUBLIC_GITHUB_USERNAME = var.github_username
-  }
-
-  # Production-only variables
-  production_only_variables = {
-    ANALYTICS_ID = "prod-analytics-id"
-    SENTRY_DSN   = "prod-sentry-dsn"
-  }
-
-  # Preview-only variables
-  preview_only_variables = {
-    ANALYTICS_ID = "staging-analytics-id"
-  }
-
-  # Development-only variables
-  development_only_variables = {
-    DEBUG_MODE = "true"
-  }
-}
-```
-
-
-
 ## Security Notes
 
 - Never commit `terraform.tfvars` or any files containing secrets
-- Store service tokens and secrets securely
+- Store service tokens and secrets securely in 1password
 - All sensitive variables are marked with `sensitive = true`
-- Use environment variables or a secure secrets manager for production deployments
 
 ## Secrets Management with 1Password
 
