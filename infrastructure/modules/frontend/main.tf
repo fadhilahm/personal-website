@@ -2,7 +2,7 @@ terraform {
   required_providers {
     netlify = {
       source  = "netlify/netlify"
-      version = "~> 4.0"
+      version = "0.3.2"
     }
   }
 }
@@ -17,28 +17,20 @@ resource "netlify_site" "main" {
   dynamic "repo" {
     for_each = var.github_repo != null ? [1] : []
     content {
-      provider  = "github"
-      repo_path = var.github_repo
-      branch    = "main"
-      base      = "frontend"
-      dir       = ".next"
-      cmd       = "npm run build"
+      provider    = "github"
+      repo        = var.github_repo
+      branch      = "main"
+      base        = "frontend"
+      dir         = ".next"
+      cmd         = "npm run build"
     }
   }
 
   build_settings {
     base        = "frontend"
-    cmd         = "npm run build"
-    dir         = ".next"
+    command     = "npm run build"
+    publish     = ".next"
     node_version = "20"
-  }
-
-  lifecycle {
-    ignore_changes = [
-      # Ignore changes to repo settings as they might be managed via Netlify UI
-      # This is especially important when importing existing sites
-      repo,
-    ]
   }
 }
 
