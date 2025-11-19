@@ -17,15 +17,8 @@ This directory contains the Terraform configurations for deploying and managing 
    # macOS (using Homebrew)
    brew install --cask 1password-cli
 
-   # Debian/Ubuntu
-   curl -sS https://downloads.1password.com/linux/keys/1password.asc | \
-   sudo gpg --dearmor --output /usr/share/keyrings/1password-archive-keyring.gpg
-   echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/1password-archive-keyring.gpg] https://downloads.1password.com/linux/debian/$(dpkg --print-architecture) stable main" | \
-   sudo tee /etc/apt/sources.list.d/1password.list
-   sudo apt update && sudo apt install 1password-cli
-
    # After installation, sign in to your account:
-   op signin
+   eval $(op signin)
    ```
 
 ## Directory Structure
@@ -85,22 +78,9 @@ infrastructure/
 ### Frontend Module
 
 - Configures frontend project for Next.js deployment
-- Sets up GitHub integration for automatic deployments
-- Manages environment variables for all environments (production, preview, development)
-- Configures custom domain (fadhilahm.dev)
 
 ## Security Notes
 
 - Never commit `terraform.tfvars` or any files containing secrets
 - Store service tokens and secrets securely in 1password
 - All sensitive variables are marked with `sensitive = true`
-
-## Secrets Management with 1Password
-
-This project uses 1Password CLI for secure secrets management. The setup includes:
-
-1. **Login to 1Password CLI**:
-
-   ```bash
-   eval $(op signin)
-   ```
