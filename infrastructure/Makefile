@@ -3,20 +3,29 @@
 # Colors for formatting
 YELLOW := \033[33m
 CYAN := \033[36m
+BOLD := \033[1m
 RESET := \033[0m
-
-# Default environment
-ENV ?= prod
 
 # Default 1Password vault
 OP_VAULT ?= "personal-website"
+
+# Default environment
+ENV ?= production
 
 # Directory paths
 ENV_DIR = environments/$(ENV)
 
 # Show available commands and their descriptions
 help:
-	@printf "\nUsage: make ${CYAN}[target]${RESET} ENV=${YELLOW}[environment]${RESET} OP_VAULT=${YELLOW}[vault_name]${RESET}\n\nTargets:\n"
+	@printf "\n${BOLD}${CYAN}"
+	@printf ".___        _____                        __                        __                        \n"
+	@printf "|   | _____/ ____\\___________    _______/  |________ __ __   _____/  |_ __ _________   ____  \n"
+	@printf "|   |/    \\   __\\\\\\\\_  __ \\__  \\  /  ___/\\   __\\_  __ \\  |  \\_/ ___\\   __\\  |  \\_  __ \\_/ __ \\ \n"
+	@printf "|   |   |  \\  |   |  | \\// __ \\_\\___ \\  |  |  |  | \\/  |  /\\  \\___|  | |  |  /|  | \\/\\  ___/ \n"
+	@printf "|___|___|  /__|   |__|  (____  /____  > |__|  |__|  |____/  \\___  >__| |____/ |__|    \\___  >\n"
+	@printf "         \\/                  \\/     \\/                          \\/                        \\/ \n"
+	@printf "${RESET}\n"
+	@printf "Usage: make ${CYAN}[target]${RESET} ${RESET}\n\nTargets:\n"
 	@awk '/^[a-zA-Z0-9_-]+:/ { \
 		helpMessage = match(lastLine, /^# (.*)/); \
 		if (helpMessage) { \
@@ -25,14 +34,10 @@ help:
 		} \
 	} \
 	{ lastLine = $$0 }' $(MAKEFILE_LIST)
-	@printf "\nDefault environment is '${YELLOW}prod${RESET}' if ENV is not specified\n"
-	@printf "Default 1Password vault is '${YELLOW}personal-website${RESET}' if OP_VAULT is not specified\n\n"
+	@printf "\n"
 
 # Fetch terraform.tfvars from 1Password
-fetch-vars:
-	@echo "Fetching terraform.tfvars from 1Password vault '$(OP_VAULT)'..."
-	@op read "op://$(OP_VAULT)/rjwtygvp5o7yxfpxpkvrq6h52a/environment_variables" > $(ENV_DIR)/terraform.tfvars
-	@echo "Successfully fetched terraform.tfvars to $(ENV_DIR)/terraform.tfvars"
+fetch-vars: ## TODO: Implement this
 
 # Initialize Terraform in the specified environment
 init:
