@@ -20,7 +20,7 @@ help:
 
 # Start all services with hot-reload
 up:
-	docker compose up
+	docker compose watch
 
 # Rebuild and start services
 build:
