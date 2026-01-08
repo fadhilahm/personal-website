@@ -28,7 +28,3 @@ For daily development, use `make up`. If you've changed dependencies or Dockerfi
 
     personal-website/
     └── frontend/               # Next.js frontend
-
-## Deployment
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/5f6a95db-23ae-4c65-bfae-ed564f75b602/deploy-status)](https://app.netlify.com/projects/personal-website-fadhilahm/deploys)
