@@ -39,6 +39,12 @@ This project uses 1Password CLI for secure secrets management. The setup include
    eval $(op signin)
    ```
 
+## How The Front End is Managed
+
+1. Create the website manually through Netlify.
+1. Copy the necessary ID for the website into the `frontend` module configuration here.
+1. Change the value in the config files if you want to modify the setting for the Front End deployment.
+
 ## Credits
 
 - ASCII art from [this website](https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Infrastructure&x=none&v=4&h=4&w=80&we=false)
