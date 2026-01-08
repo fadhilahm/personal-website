@@ -29,8 +29,8 @@ variable "build_command" {
 
 variable "publish_dir" {
   type        = string
-  description = "Directory to publish (relative to repo root)"
-  default     = "frontend/dist"
+  description = "Directory to publish (relative to repo root). For Next.js with @netlify/plugin-nextjs, use 'frontend/.next'"
+  default     = "frontend/.next"
 }
 
 variable "custom_domain" {

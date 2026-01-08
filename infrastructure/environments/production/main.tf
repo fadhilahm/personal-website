@@ -10,7 +10,7 @@ module "frontend" {
 
   # Build configuration
   build_command = "cd frontend && npm ci && npm run build"
-  publish_dir   = "frontend/dist"
+  publish_dir   = "frontend/.next"
 
   # Environment variables for the frontend
   environment_variables = {
