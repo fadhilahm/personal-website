@@ -12,6 +12,7 @@
     "editor.defaultFormatter": "hashicorp.terraform"
   },
   "cSpell.words": [
+    "tfstate",
     "yxfpxpkvrq"
   ]
 }
