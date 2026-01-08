@@ -49,6 +49,11 @@ plan:
 	@echo "Planning Terraform changes in $(ENV_DIR)..."
 	cd $(ENV_DIR) && terraform plan
 
+# Show Terraform state in the environment
+show:
+	@echo "Showing Terraform state in $(ENV_DIR)..."
+	cd $(ENV_DIR) && terraform show
+
 # Apply Terraform changes without confirmation prompt
 apply:
 	@echo "Applying Terraform changes in $(ENV_DIR)..."

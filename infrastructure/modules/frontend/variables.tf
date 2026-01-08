@@ -1,6 +1,13 @@
-variable "site_name" {
+variable "site_id" {
   type        = string
-  description = "Name for the Netlify site"
+  description = "ID of the Netlify site"
+  nullable    = false
+}
+
+variable "team_id" {
+  type        = string
+  description = "ID of the Netlify team"
+  nullable    = false
 }
 
 variable "github_repo" {
@@ -22,8 +29,8 @@ variable "build_command" {
 
 variable "publish_dir" {
   type        = string
-  description = "Directory to publish"
-  default     = "/frontend/dist"
+  description = "Directory to publish (relative to repo root)"
+  default     = "frontend/dist"
 }
 
 variable "custom_domain" {

@@ -1,16 +1,16 @@
 output "site_id" {
   description = "Netlify site ID"
-  value       = netlify_site.frontend.id
+  value       = data.netlify_site.frontend.id
 }
 
 output "site_url" {
   description = "Frontend site URL"
-  value       = netlify_site.frontend.url
+  value       = data.netlify_site.frontend.custom_domain != "" ? "https://${data.netlify_site.frontend.custom_domain}" : "https://${data.netlify_site.frontend.name}.netlify.app"
 }
 
 output "admin_url" {
   description = "Netlify admin dashboard URL"
-  value       = netlify_site.frontend.admin_url
+  value       = "https://app.netlify.com/sites/${data.netlify_site.frontend.name}"
 }
 
 output "deploy_key_public" {
@@ -21,5 +21,5 @@ output "deploy_key_public" {
 
 output "site_name" {
   description = "Site name on Netlify"
-  value       = netlify_site.frontend.name
+  value       = data.netlify_site.frontend.name
 }

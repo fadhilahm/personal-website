@@ -1,9 +1,10 @@
-# Call the frontend module
 module "frontend" {
   source = "../../modules/frontend"
 
   # Site configuration
-  site_name     = "ai-portfolio-${var.environment}"
+  site_id       = var.site_id
+  team_id       = var.team_id
+  custom_domain = var.custom_domain
   github_repo   = var.github_repo
   github_branch = "main"
 
