@@ -31,13 +31,25 @@ Before working with this infrastructure code, ensure you have the following inst
 
 ## Secrets Management with 1Password
 
-This project uses 1Password CLI for secure secrets management. The setup includes:
+### How to Setup Secrets for Local Environment
 
 1. **Login to 1Password CLI**:
 
    ```bash
    eval $(op signin)
    ```
+
+1. **Fetch secrets from 1Password**:
+
+   ```bash
+   make setup-secrets
+   ```
+
+### How to Add New Secrets
+
+1. Go to 1Password website
+1. Create a new item under `personal-website` vault
+1. Add proper tags
 
 ## How The Front End is Managed
 
