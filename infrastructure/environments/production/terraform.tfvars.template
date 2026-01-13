@@ -1,0 +1,5 @@
+# Front End 
+netlify_api_token = "op://personal-website/netlify_api_token/credential"
+site_id = "op://personal-website/netlify_config/site_id"
+team_id = "op://personal-website/netlify_config/team_id"
+custom_domain = "op://personal-website/netlify_config/custom_domain"

@@ -1,4 +1,4 @@
-.PHONY: init plan apply apply-interactive help fetch-vars
+.PHONY: init plan apply apply-interactive help setup-secrets
 
 # Colors for formatting
 YELLOW := \033[33m
@@ -36,8 +36,30 @@ help:
 	{ lastLine = $$0 }' $(MAKEFILE_LIST)
 	@printf "\n"
 
-# Fetch terraform.tfvars from 1Password
-fetch-vars: ## TODO: Implement this
+# Create terraform.tfvars file using injected real values from 1Password
+setup-secrets:
+	@cd $(ENV_DIR) && \
+	(spinner() { \
+		while :; do \
+			for c in "⠋" "⠙" "⠹" "⠸" "⠼" "⠴" "⠦" "⠧" "⠇" "⠏"; do \
+				printf "\r${BOLD}${CYAN}🔐 Injecting secrets from 1Password... ${c}${RESET}   "; \
+				sleep 0.1; \
+			done; \
+		done; \
+	}; \
+	spinner & \
+	SPINNER_PID=$$!; \
+	trap "kill $$SPINNER_PID 2>/dev/null" EXIT; \
+	op inject -i terraform.tfvars.template -o terraform.tfvars; \
+	EXIT_CODE=$$?; \
+	kill $$SPINNER_PID 2>/dev/null; \
+	wait $$SPINNER_PID 2>/dev/null; \
+	if [ $$EXIT_CODE -eq 0 ]; then \
+		printf "\r${BOLD}${CYAN}✅ Secrets injected successfully!${RESET}                    \n"; \
+	else \
+		printf "\r${BOLD}${YELLOW}❌ Failed to inject secrets${RESET}                    \n"; \
+		exit $$EXIT_CODE; \
+	fi)
 
 # Initialize Terraform in the specified environment
 init:
