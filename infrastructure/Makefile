@@ -36,8 +36,10 @@ help:
 	{ lastLine = $$0 }' $(MAKEFILE_LIST)
 	@printf "\n"
 
-# Fetch terraform.tfvars from 1Password
-fetch-vars: ## TODO: Implement this
+# Create terraform.tfvars file using injected real values from 1Password
+setup-secrets:
+	@echo "Setting up secrets in $(ENV_DIR)..."
+	cd $(ENV_DIR) && op inject -i terraform.tfvars.template -o terraform.tfvars
 
 # Initialize Terraform in the specified environment
 init:
