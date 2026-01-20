@@ -32,7 +32,8 @@ erDiagram
     }
 
     companies {
-        int     id
+        int     id              PK
+        string  english_name
     }
 
 ```
@@ -54,3 +55,7 @@ How to classify the tech-stack. This is is so that we could add feature that gro
 ### tech_stack_category_translations
 
 Translation table for [tech_stack_categories](#tech_stack_category_translations).
+
+### companies
+
+Companies that I have worked for.
