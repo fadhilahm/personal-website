@@ -20,6 +20,11 @@ erDiagram
         int     tech_stack_category_id  FK
     }
 
+    tech_stack_categories {
+        int     id
+        string  name
+    }
+
 ```
 
 ## Tables Explanation
@@ -31,3 +36,7 @@ What locales are being supported by this project. This is made because I want to
 ### tech_stacks
 
 What technology is being used in a project. Created so that we could add functionality like filtering projects that use a particular technology. There are 2 image URLs because I want to add a feature to toggle between the professional logo and the cute v-tuber inspired one. I just found it to be extremely neat.
+
+## tech_stack_categories
+
+How to classify the tech-stack. This is is so that we could add feature that group tech-stacks based on their similarity.
