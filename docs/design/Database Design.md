@@ -28,12 +28,36 @@ erDiagram
     tech_stack_category_translations  {
         int     id                      PK
         int     tech_stack_category_id  FK
+        int     locale_id               FK
         string  name
     }
 
     companies {
         int     id              PK
         string  english_name
+    }
+
+    company_translations {
+        int     id          PK
+        string  name
+        string  description
+        int     locale_id   FK
+        int     company_id  FK
+    }
+
+    locations {
+        int     id              PK
+        string  english_country
+        string  english_city
+    }
+
+    location_translations {
+        int     id          PK
+        string  country
+        string  province
+        string  city
+        int     location_id FK
+        int     locale_id   FK
     }
 
 ```
@@ -59,3 +83,7 @@ Translation table for [tech_stack_categories](#tech_stack_category_translations)
 ### companies
 
 Companies that I have worked for.
+
+### company_translations
+
+Translation table for [companies](#companies).
