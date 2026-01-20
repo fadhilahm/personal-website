@@ -25,11 +25,15 @@ erDiagram
         string  name
     }
 
+    tech_stack_category_translations  {
+
+    }
+
 ```
 
 ## Tables Explanation
 
-### Locales
+### locales
 
 What locales are being supported by this project. This is made because I want to make it so that I can cast the widest net. Japanese because I currently live in Japan, English so that I could work at an international company, Indonesian for when I need to work back in the motherland.
 
