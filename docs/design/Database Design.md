@@ -21,14 +21,18 @@ erDiagram
     }
 
     tech_stack_categories {
-        int     id
+        int     id              PK
         string  english_name
     }
 
     tech_stack_category_translations  {
-        int     id
+        int     id                      PK
         int     tech_stack_category_id  FK
         string  name
+    }
+
+    companies {
+        int     id
     }
 
 ```
