@@ -1,4 +1,4 @@
-# Database Design
+# Entity Relationships
 
 ## ER Diagram
 
