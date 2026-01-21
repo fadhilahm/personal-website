@@ -68,8 +68,23 @@ erDiagram
     }
 
     work_mode_translations {
-        int     id      PK
+        int     id              PK
         string  name
+        int     work_mode_id    FK
+        int     locale_id       FK
+    }
+
+    projects {
+        int     id              PK
+        string  english_name
+    }
+
+    project_translations {
+        int     id          PK
+        string  name
+        string  description
+        int     project_id  FK
+        int     locale_id   FK
     }
 
 ```
@@ -114,4 +129,12 @@ The physical work arrangement for the position.
 
 ### work_mode_translations
 
-Translation table for [work_modes](#work_modes)
+Translation table for [work_modes](#work_modes).
+
+### projects
+
+What kind of project (both professional and personal) that I have done.
+
+### project_translations
+
+Translation table for [project](#projects).
