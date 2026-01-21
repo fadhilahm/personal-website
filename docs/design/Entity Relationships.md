@@ -62,6 +62,16 @@ erDiagram
         int     locale_id   FK
     }
 
+    work_modes {
+        int     id              PK
+        string  english_name
+    }
+
+    work_mode_translations {
+        int     id      PK
+        string  name
+    }
+
 ```
 
 ## Tables Explanation
@@ -97,3 +107,11 @@ Where I live during that time period.
 ### location_translations
 
 Translation table for [locations](#locations).
+
+### work_modes
+
+The physical work arrangement for the position.
+
+### work_mode_translations
+
+Translation table for [work_modes](#work_modes)
