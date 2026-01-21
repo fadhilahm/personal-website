@@ -10,6 +10,7 @@ erDiagram
         int     id              PK
         string  english_name
         string  localized_name
+        string  code
     }
 
     tech_stacks {
@@ -48,6 +49,7 @@ erDiagram
     locations {
         int     id              PK
         string  english_country
+        string  english_province
         string  english_city
     }
 
@@ -87,3 +89,11 @@ Companies that I have worked for.
 ### company_translations
 
 Translation table for [companies](#companies).
+
+### locations
+
+Where I live during that time period.
+
+### location_translations
+
+Translation table for [locations](#locations).
