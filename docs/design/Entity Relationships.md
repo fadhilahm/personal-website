@@ -87,6 +87,36 @@ erDiagram
         int     locale_id   FK
     }
 
+    employment_types {
+        int     id              PK
+        string  english_name
+    }
+
+    employment_type_translations {
+        int     id                  PK
+        string  name
+        int     employment_type_id  FK
+        int     locale_id           FK
+    }
+
+    work_experiences {
+        int     id                  PK
+        int     company_id          FK
+        date    start_date
+        date    end_date
+        int     employment_type_id  FK
+        int     work_mode_id        FK
+        string  daily_languages
+    }
+
+    work_experience_translations {
+        int     id                  PK
+        string  position_title
+        string  description
+        int     work_experience_id  FK
+        int     locale_id           FK
+    }
+
 ```
 
 ## Tables Explanation
@@ -138,3 +168,15 @@ What kind of project (both professional and personal) that I have done.
 ### project_translations
 
 Translation table for [project](#projects).
+
+### employment_types
+
+The nature of the employment contract.
+
+### employment_type_translations
+
+Translation table for [employment_types](#employment_types).
+
+### work_experiences
+
+### work_experience_translations
