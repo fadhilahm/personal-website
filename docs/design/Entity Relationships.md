@@ -211,35 +211,35 @@ What technology is being used in a project. Created so that we could add functio
 
 ### tech_stack_categories
 
-How to classify the tech-stack. This is is so that we could add feature that group tech-stacks based on their similarity.
+How to classify the tech-stack. This is so that we could add a feature that groups tech-stacks based on their similarity. Examples include Frontend, Backend, DevOps, Database, etc.
 
 ### tech_stack_category_translations
 
-Translation table for [tech_stack_categories](#tech_stack_category_translations).
+Translation table for [tech_stack_categories](#tech_stack_categories). Contains the localized category name for each supported locale.
 
 ### companies
 
-Companies that I have worked for.
+Companies that I have worked for. Stores the base company record with an English name for reference and administration.
 
 ### company_translations
 
-Translation table for [companies](#companies).
+Translation table for [companies](#companies). Contains the localized company name and description for each supported locale.
 
 ### locations
 
-Where I live during that time period.
+Where I lived during that time period. Stores geographic information at the country, province, and city level in English for reference.
 
 ### location_translations
 
-Translation table for [locations](#locations).
+Translation table for [locations](#locations). Contains the localized country, province, and city names for each supported locale.
 
 ### work_modes
 
-The physical work arrangement for the position.
+The physical work arrangement for the position. Examples include Remote, On-site, Hybrid, etc.
 
 ### work_mode_translations
 
-Translation table for [work_modes](#work_modes).
+Translation table for [work_modes](#work_modes). Contains the localized work mode name for each supported locale.
 
 ### projects
 
@@ -247,15 +247,15 @@ What kind of project (both professional and personal) that I have done. The `is_
 
 ### project_translations
 
-Translation table for [project](#projects).
+Translation table for [projects](#projects). Contains the localized project name and description for each supported locale.
 
 ### employment_types
 
-The nature of the employment contract.
+The nature of the employment contract. Examples include Full-time, Part-time, Contract, Internship, Freelance, etc.
 
 ### employment_type_translations
 
-Translation table for [employment_types](#employment_types).
+Translation table for [employment_types](#employment_types). Contains the localized employment type name for each supported locale.
 
 ### work_experiences
 
