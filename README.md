@@ -27,4 +27,9 @@ For daily development, use `make up`. If you've changed dependencies or Dockerfi
 ## Project Structure
 
     personal-website/
-    └── frontend/               # Next.js frontend
+    ├── frontend/               # Next.js frontend
+    ├── docs/                   # Design + API docs
+    ├── infrastructure/         # Terraform for infra for cloud deployment
+    ├── docker-compose.yml      # Dev stack for local development
+    ├── Makefile                 # Dev shortcuts
+    └── README.md               # Repo overview
