@@ -33,3 +33,14 @@ variable "custom_domain" {
   description = "Custom domain"
   default     = "fadhilahm.dev"
 }
+
+variable "railway_api_token" {
+  type        = string
+  description = "Railway API token"
+  sensitive   = true
+}
+
+variable "railway_project_id" {
+  type        = string
+  description = "Railway project ID"
+}
