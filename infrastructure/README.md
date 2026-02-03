@@ -1,5 +1,10 @@
 # Infrastructure
 
+## Tech Stacks
+
+- **[Netlify](https://www.netlify.com/)** - Frontend hosting
+- **[Railway](https://railway.app/)** - Managed database
+
 ## Prerequisites
 
 Before working with this infrastructure code, ensure you have the following installed and configured:
