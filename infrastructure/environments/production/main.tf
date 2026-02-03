@@ -20,3 +20,14 @@ module "frontend" {
     }
   }
 }
+
+module "db" {
+  source = "../../modules/db"
+
+  railway_project_id       = var.railway_project_id
+  railway_environment_name = var.railway_environment_name
+  db_name                  = var.db_name
+  db_user                  = var.db_user
+  db_password              = var.db_password
+  db_root_password         = var.db_root_password
+}
