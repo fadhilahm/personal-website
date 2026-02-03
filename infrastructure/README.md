@@ -51,6 +51,14 @@ Before working with this infrastructure code, ensure you have the following inst
 1. Create a new item under `personal-website` vault
 1. Add proper tags
 
+### How to Generate your Own Secrets
+
+If you need to generate a random string as a credential for something, you could execute the following commands:
+
+```bash
+openssl rand -base64 24
+```
+
 ## How The Front End is Managed
 
 1. Create the website manually through Netlify.
