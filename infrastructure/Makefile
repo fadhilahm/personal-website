@@ -1,4 +1,4 @@
-.PHONY: init plan apply apply-interactive help setup-secrets
+.PHONY: init plan apply apply-interactive destroy help setup-secrets
 
 # Colors for formatting
 YELLOW := \033[33m
@@ -85,3 +85,8 @@ apply:
 apply-interactive:
 	@echo "Applying Terraform changes in $(ENV_DIR)..."
 	cd $(ENV_DIR) && terraform apply
+
+# Destroy Terraform-managed resources with confirmation prompt
+destroy:
+	@echo "Destroying Terraform resources in $(ENV_DIR)..."
+	cd $(ENV_DIR) && terraform destroy
