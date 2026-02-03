@@ -3,10 +3,10 @@ resource "railway_service" "mysql" {
   project_id   = var.railway_project_id
   source_image = "mysql:8.0"
 
-  volume = {
-    name       = "${var.db_name}-data"
+  volume = var.db_volume_enabled ? {
+    name       = coalesce(var.db_volume_name, "${var.db_name}-data")
     mount_path = "/var/lib/mysql"
-  }
+  } : null
 }
 
 resource "railway_environment" "db" {

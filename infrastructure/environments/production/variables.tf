@@ -74,3 +74,16 @@ variable "db_root_password" {
   description = "Railway MySQL root password"
   sensitive   = true
 }
+
+variable "db_volume_enabled" {
+  type        = bool
+  description = "Whether to provision a Railway volume for MySQL"
+  default     = true
+}
+
+variable "db_volume_name" {
+  type        = string
+  description = "Optional Railway volume name override"
+  default     = null
+  nullable    = true
+}

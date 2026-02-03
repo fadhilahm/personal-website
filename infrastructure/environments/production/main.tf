@@ -30,4 +30,6 @@ module "db" {
   db_user                  = var.db_user
   db_password              = var.db_password
   db_root_password         = var.db_root_password
+  db_volume_enabled        = var.db_volume_enabled
+  db_volume_name           = var.db_volume_name
 }
