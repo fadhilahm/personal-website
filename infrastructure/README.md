@@ -1,5 +1,10 @@
 # Infrastructure
 
+## Tech Stacks
+
+- **[Netlify](https://www.netlify.com/)** - Frontend hosting
+- **[Railway](https://railway.app/)** - Managed database
+
 ## Prerequisites
 
 Before working with this infrastructure code, ensure you have the following installed and configured:
@@ -50,6 +55,14 @@ Before working with this infrastructure code, ensure you have the following inst
 1. Go to 1Password website
 1. Create a new item under `personal-website` vault
 1. Add proper tags
+
+### How to Generate your Own Secrets
+
+If you need to generate a random string as a credential for something, you could execute the following commands:
+
+```bash
+openssl rand -base64 24
+```
 
 ## How The Front End is Managed
 

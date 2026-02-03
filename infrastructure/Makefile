@@ -1,4 +1,4 @@
-.PHONY: init plan apply apply-interactive help setup-secrets
+.PHONY: init plan apply apply-interactive destroy help setup-secrets
 
 # Colors for formatting
 YELLOW := \033[33m
@@ -38,6 +38,9 @@ help:
 
 # Create terraform.tfvars file using injected real values from 1Password
 setup-secrets:
+	@printf "${BOLD}${CYAN}Signing in to 1Password...${RESET}\n"
+	@eval $(op signin)
+	@printf "${BOLD}${CYAN}Injecting secrets from 1Password...${RESET}\n"
 	@cd $(ENV_DIR) && \
 	(spinner() { \
 		while :; do \
@@ -85,3 +88,8 @@ apply:
 apply-interactive:
 	@echo "Applying Terraform changes in $(ENV_DIR)..."
 	cd $(ENV_DIR) && terraform apply
+
+# Destroy Terraform-managed resources with confirmation prompt
+destroy:
+	@echo "Destroying Terraform resources in $(ENV_DIR)..."
+	cd $(ENV_DIR) && terraform destroy

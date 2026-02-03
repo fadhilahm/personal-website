@@ -1,1 +1,1 @@
-{"Modules":[{"Key":"","Source":"","Dir":"."},{"Key":"frontend","Source":"../../modules/frontend","Dir":"../../modules/frontend"}]}
+{"Modules":[{"Key":"","Source":"","Dir":"."},{"Key":"db","Source":"../../modules/db","Dir":"../../modules/db"},{"Key":"frontend","Source":"../../modules/frontend","Dir":"../../modules/frontend"}]}
