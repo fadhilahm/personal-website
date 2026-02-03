@@ -3,7 +3,7 @@ resource "railway_service" "mysql" {
   project_id   = var.railway_project_id
   source_image = "mysql:8.0"
 
-  volume {
+  volume = {
     name       = "${var.db_name}-data"
     mount_path = "/var/lib/mysql"
   }
