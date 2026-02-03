@@ -38,6 +38,9 @@ help:
 
 # Create terraform.tfvars file using injected real values from 1Password
 setup-secrets:
+	@echo "Signing in to 1Password..."
+	@eval $(op signin)
+	@echo "Injecting secrets from 1Password..."
 	@cd $(ENV_DIR) && \
 	(spinner() { \
 		while :; do \
