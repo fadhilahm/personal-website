@@ -191,12 +191,23 @@ The project uses a carefully curated color palette that maintains brand consiste
 - **Warning**: `#F59E0B` → `#FBBF24` (Orange for learning status)
 - **Borders**: `#E2E8F0` → `#334155` (Subtle boundaries)
 
+## Database (Drizzle ORM)
+
+We use [Drizzle ORM](https://orm.drizzle.team/) with MySQL.
+
+```bash
+npx drizzle-kit generate   # Generate migrations
+npx drizzle-kit migrate    # Run migrations
+npx drizzle-kit studio     # Database GUI
+```
+
 ## Features
 
 - Next.js 14 with App Router
 - TypeScript for type safety
 - Tailwind CSS for styling
 - DaisyUI for components
+- Drizzle ORM for type-safe database access (MySQL)
 - i18n support for internationalization
 - Storybook for component development and documentation
 - ESLint for code quality
@@ -217,6 +228,7 @@ frontend/
 │       └── i18n/          # Internationalization components
 ├── config/                 # Configuration files
 ├── constants/              # Constant values and enums
+├── db/                     # Database (Drizzle ORM)
 ├── hooks/                  # Custom React hooks
 ├── i18n/                   # Internationalization setup
 ├── messages/               # Translation messages
