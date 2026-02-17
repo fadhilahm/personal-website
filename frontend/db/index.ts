@@ -1,5 +1,9 @@
+import { config } from 'dotenv';
 import { drizzle } from 'drizzle-orm/mysql2';
 import { createPool } from 'mysql2/promise';
+
+const env = process.env.ENV ?? process.env.NODE_ENV ?? process.env.APP_ENV ?? 'local';
+config({ path: env === 'production' ? '.env.production' : '.env' });
 
 function getDatabaseUrl(): string {
   if (process.env.DATABASE_URL) {
