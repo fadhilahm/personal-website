@@ -2,8 +2,6 @@
 
 Database layer using Drizzle ORM (MySQL).
 
-## Setup
-
 ## Structure
 
 - `schema.ts` – table definitions (ordered by dependency)
