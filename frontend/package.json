@@ -36,6 +36,7 @@
     "@typescript-eslint/parser": "^7.0.1",
     "autoprefixer": "^10.0.1",
     "daisyui": "^4.4.19",
+    "dotenv": "^17.3.1",
     "drizzle-kit": "^0.31.9",
     "eslint": "^8",
     "eslint-config-next": "14.1.0",
