@@ -1,7 +1,7 @@
 {
   "version": "5",
   "dialect": "mysql",
-  "id": "f2e39f15-22f7-4f87-a8dc-1f4829d6cb40",
+  "id": "f39522dc-04c8-4b8a-85dd-a484d47721d0",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "companies": {
@@ -76,8 +76,8 @@
       },
       "indexes": {},
       "foreignKeys": {
-        "company_translations_locale_id_locales_id_fk": {
-          "name": "company_translations_locale_id_locales_id_fk",
+        "fk_ct_locale_id": {
+          "name": "fk_ct_locale_id",
           "tableFrom": "company_translations",
           "tableTo": "locales",
           "columnsFrom": [
@@ -89,8 +89,8 @@
           "onDelete": "no action",
           "onUpdate": "no action"
         },
-        "company_translations_company_id_companies_id_fk": {
-          "name": "company_translations_company_id_companies_id_fk",
+        "fk_ct_company_id": {
+          "name": "fk_ct_company_id",
           "tableFrom": "company_translations",
           "tableTo": "companies",
           "columnsFrom": [
@@ -148,8 +148,8 @@
       },
       "indexes": {},
       "foreignKeys": {
-        "employment_type_translations_employment_type_id_employment_types_id_fk": {
-          "name": "employment_type_translations_employment_type_id_employment_types_id_fk",
+        "fk_ett_employment_type_id": {
+          "name": "fk_ett_employment_type_id",
           "tableFrom": "employment_type_translations",
           "tableTo": "employment_types",
           "columnsFrom": [
@@ -161,8 +161,8 @@
           "onDelete": "no action",
           "onUpdate": "no action"
         },
-        "employment_type_translations_locale_id_locales_id_fk": {
-          "name": "employment_type_translations_locale_id_locales_id_fk",
+        "fk_ett_locale_id": {
+          "name": "fk_ett_locale_id",
           "tableFrom": "employment_type_translations",
           "tableTo": "locales",
           "columnsFrom": [
@@ -310,8 +310,8 @@
       },
       "indexes": {},
       "foreignKeys": {
-        "location_translations_location_id_locations_id_fk": {
-          "name": "location_translations_location_id_locations_id_fk",
+        "fk_lt_location_id": {
+          "name": "fk_lt_location_id",
           "tableFrom": "location_translations",
           "tableTo": "locations",
           "columnsFrom": [
@@ -323,8 +323,8 @@
           "onDelete": "no action",
           "onUpdate": "no action"
         },
-        "location_translations_locale_id_locales_id_fk": {
-          "name": "location_translations_locale_id_locales_id_fk",
+        "fk_lt_locale_id": {
+          "name": "fk_lt_locale_id",
           "tableFrom": "location_translations",
           "tableTo": "locales",
           "columnsFrom": [
@@ -420,8 +420,8 @@
       },
       "indexes": {},
       "foreignKeys": {
-        "project_tech_stacks_project_id_projects_id_fk": {
-          "name": "project_tech_stacks_project_id_projects_id_fk",
+        "fk_pts_project_id": {
+          "name": "fk_pts_project_id",
           "tableFrom": "project_tech_stacks",
           "tableTo": "projects",
           "columnsFrom": [
@@ -433,8 +433,8 @@
           "onDelete": "no action",
           "onUpdate": "no action"
         },
-        "project_tech_stacks_tech_stack_id_tech_stacks_id_fk": {
-          "name": "project_tech_stacks_tech_stack_id_tech_stacks_id_fk",
+        "fk_pts_tech_stack_id": {
+          "name": "fk_pts_tech_stack_id",
           "tableFrom": "project_tech_stacks",
           "tableTo": "tech_stacks",
           "columnsFrom": [
@@ -499,8 +499,8 @@
       },
       "indexes": {},
       "foreignKeys": {
-        "project_translations_project_id_projects_id_fk": {
-          "name": "project_translations_project_id_projects_id_fk",
+        "fk_pt_project_id": {
+          "name": "fk_pt_project_id",
           "tableFrom": "project_translations",
           "tableTo": "projects",
           "columnsFrom": [
@@ -512,8 +512,8 @@
           "onDelete": "no action",
           "onUpdate": "no action"
         },
-        "project_translations_locale_id_locales_id_fk": {
-          "name": "project_translations_locale_id_locales_id_fk",
+        "fk_pt_locale_id": {
+          "name": "fk_pt_locale_id",
           "tableFrom": "project_translations",
           "tableTo": "locales",
           "columnsFrom": [
@@ -640,8 +640,8 @@
       },
       "indexes": {},
       "foreignKeys": {
-        "tech_stack_category_translations_tech_stack_category_id_tech_stack_categories_id_fk": {
-          "name": "tech_stack_category_translations_tech_stack_category_id_tech_stack_categories_id_fk",
+        "fk_tsct_tech_stack_cat_id": {
+          "name": "fk_tsct_tech_stack_cat_id",
           "tableFrom": "tech_stack_category_translations",
           "tableTo": "tech_stack_categories",
           "columnsFrom": [
@@ -653,8 +653,8 @@
           "onDelete": "no action",
           "onUpdate": "no action"
         },
-        "tech_stack_category_translations_locale_id_locales_id_fk": {
-          "name": "tech_stack_category_translations_locale_id_locales_id_fk",
+        "fk_tsct_locale_id": {
+          "name": "fk_tsct_locale_id",
           "tableFrom": "tech_stack_category_translations",
           "tableTo": "locales",
           "columnsFrom": [
@@ -719,8 +719,8 @@
       },
       "indexes": {},
       "foreignKeys": {
-        "tech_stacks_tech_stack_category_id_tech_stack_categories_id_fk": {
-          "name": "tech_stacks_tech_stack_category_id_tech_stack_categories_id_fk",
+        "fk_ts_tech_stack_category_id": {
+          "name": "fk_ts_tech_stack_category_id",
           "tableFrom": "tech_stacks",
           "tableTo": "tech_stack_categories",
           "columnsFrom": [
@@ -771,8 +771,8 @@
       },
       "indexes": {},
       "foreignKeys": {
-        "work_experience_locales_work_experience_id_work_experiences_id_fk": {
-          "name": "work_experience_locales_work_experience_id_work_experiences_id_fk",
+        "fk_wel_work_experience_id": {
+          "name": "fk_wel_work_experience_id",
           "tableFrom": "work_experience_locales",
           "tableTo": "work_experiences",
           "columnsFrom": [
@@ -784,8 +784,8 @@
           "onDelete": "no action",
           "onUpdate": "no action"
         },
-        "work_experience_locales_locale_id_locales_id_fk": {
-          "name": "work_experience_locales_locale_id_locales_id_fk",
+        "fk_wel_locale_id": {
+          "name": "fk_wel_locale_id",
           "tableFrom": "work_experience_locales",
           "tableTo": "locales",
           "columnsFrom": [
@@ -836,8 +836,8 @@
       },
       "indexes": {},
       "foreignKeys": {
-        "work_experience_locations_work_experience_id_work_experiences_id_fk": {
-          "name": "work_experience_locations_work_experience_id_work_experiences_id_fk",
+        "fk_weloc_work_experience_id": {
+          "name": "fk_weloc_work_experience_id",
           "tableFrom": "work_experience_locations",
           "tableTo": "work_experiences",
           "columnsFrom": [
@@ -849,8 +849,8 @@
           "onDelete": "no action",
           "onUpdate": "no action"
         },
-        "work_experience_locations_location_id_locations_id_fk": {
-          "name": "work_experience_locations_location_id_locations_id_fk",
+        "fk_weloc_location_id": {
+          "name": "fk_weloc_location_id",
           "tableFrom": "work_experience_locations",
           "tableTo": "locations",
           "columnsFrom": [
@@ -901,8 +901,8 @@
       },
       "indexes": {},
       "foreignKeys": {
-        "work_experience_projects_work_experience_id_work_experiences_id_fk": {
-          "name": "work_experience_projects_work_experience_id_work_experiences_id_fk",
+        "fk_wep_work_experience_id": {
+          "name": "fk_wep_work_experience_id",
           "tableFrom": "work_experience_projects",
           "tableTo": "work_experiences",
           "columnsFrom": [
@@ -914,8 +914,8 @@
           "onDelete": "no action",
           "onUpdate": "no action"
         },
-        "work_experience_projects_project_id_projects_id_fk": {
-          "name": "work_experience_projects_project_id_projects_id_fk",
+        "fk_wep_project_id": {
+          "name": "fk_wep_project_id",
           "tableFrom": "work_experience_projects",
           "tableTo": "projects",
           "columnsFrom": [
@@ -966,8 +966,8 @@
       },
       "indexes": {},
       "foreignKeys": {
-        "work_experience_tech_stacks_work_experience_id_work_experiences_id_fk": {
-          "name": "work_experience_tech_stacks_work_experience_id_work_experiences_id_fk",
+        "fk_wets_work_experience_id": {
+          "name": "fk_wets_work_experience_id",
           "tableFrom": "work_experience_tech_stacks",
           "tableTo": "work_experiences",
           "columnsFrom": [
@@ -979,8 +979,8 @@
           "onDelete": "no action",
           "onUpdate": "no action"
         },
-        "work_experience_tech_stacks_tech_stack_id_tech_stacks_id_fk": {
-          "name": "work_experience_tech_stacks_tech_stack_id_tech_stacks_id_fk",
+        "fk_wets_tech_stack_id": {
+          "name": "fk_wets_tech_stack_id",
           "tableFrom": "work_experience_tech_stacks",
           "tableTo": "tech_stacks",
           "columnsFrom": [
@@ -1045,8 +1045,8 @@
       },
       "indexes": {},
       "foreignKeys": {
-        "work_experience_translations_work_experience_id_work_experiences_id_fk": {
-          "name": "work_experience_translations_work_experience_id_work_experiences_id_fk",
+        "fk_wet_work_experience_id": {
+          "name": "fk_wet_work_experience_id",
           "tableFrom": "work_experience_translations",
           "tableTo": "work_experiences",
           "columnsFrom": [
@@ -1058,8 +1058,8 @@
           "onDelete": "no action",
           "onUpdate": "no action"
         },
-        "work_experience_translations_locale_id_locales_id_fk": {
-          "name": "work_experience_translations_locale_id_locales_id_fk",
+        "fk_wet_locale_id": {
+          "name": "fk_wet_locale_id",
           "tableFrom": "work_experience_translations",
           "tableTo": "locales",
           "columnsFrom": [
@@ -1131,8 +1131,8 @@
       },
       "indexes": {},
       "foreignKeys": {
-        "work_experiences_company_id_companies_id_fk": {
-          "name": "work_experiences_company_id_companies_id_fk",
+        "fk_we_company_id": {
+          "name": "fk_we_company_id",
           "tableFrom": "work_experiences",
           "tableTo": "companies",
           "columnsFrom": [
@@ -1144,8 +1144,8 @@
           "onDelete": "no action",
           "onUpdate": "no action"
         },
-        "work_experiences_employment_type_id_employment_types_id_fk": {
-          "name": "work_experiences_employment_type_id_employment_types_id_fk",
+        "fk_we_employment_type_id": {
+          "name": "fk_we_employment_type_id",
           "tableFrom": "work_experiences",
           "tableTo": "employment_types",
           "columnsFrom": [
@@ -1157,8 +1157,8 @@
           "onDelete": "no action",
           "onUpdate": "no action"
         },
-        "work_experiences_work_mode_id_work_modes_id_fk": {
-          "name": "work_experiences_work_mode_id_work_modes_id_fk",
+        "fk_we_work_mode_id": {
+          "name": "fk_we_work_mode_id",
           "tableFrom": "work_experiences",
           "tableTo": "work_modes",
           "columnsFrom": [
@@ -1216,8 +1216,8 @@
       },
       "indexes": {},
       "foreignKeys": {
-        "work_mode_translations_work_mode_id_work_modes_id_fk": {
-          "name": "work_mode_translations_work_mode_id_work_modes_id_fk",
+        "fk_wmt_work_mode_id": {
+          "name": "fk_wmt_work_mode_id",
           "tableFrom": "work_mode_translations",
           "tableTo": "work_modes",
           "columnsFrom": [
@@ -1229,8 +1229,8 @@
           "onDelete": "no action",
           "onUpdate": "no action"
         },
-        "work_mode_translations_locale_id_locales_id_fk": {
-          "name": "work_mode_translations_locale_id_locales_id_fk",
+        "fk_wmt_locale_id": {
+          "name": "fk_wmt_locale_id",
           "tableFrom": "work_mode_translations",
           "tableTo": "locales",
           "columnsFrom": [
