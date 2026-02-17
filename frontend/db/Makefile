@@ -1,4 +1,4 @@
-.PHONY: help migrate migrate-production generate push studio seed seed-production
+.PHONY: help migrate migrate-production generate push studio seed seed-production reset-migration
 
 # Colors for formatting
 YELLOW := \033[33m
@@ -42,28 +42,51 @@ help:
 
 # Generate migrations from schema changes
 generate:
+	@echo "Generating migrations..."
 	(cd $(ROOT) && npx drizzle-kit generate)
+	@echo "Migration generation completed."
 
 # Run migrations (local by default; use ENV=production for production)
 migrate:
+	@echo "Running migrations..."
 	(cd $(ROOT) && ENV=$(ENV) NODE_ENV=$(ENV) npx drizzle-kit migrate)
+	@echo "Migrations completed."
 
 # Run migrations against production database
 migrate-production:
+	@echo "Running migrations against production..."
 	(cd $(ROOT) && ENV=production NODE_ENV=production npx drizzle-kit migrate)
+	@echo "Production migrations completed."
+
+# Reset migration: drop and recreate database, then run migrations (local only, requires Docker)
+MYSQL_ROOT_PASSWORD ?= root_password
+MYSQL_DATABASE ?= app_db
+reset-migration:
+	@echo "Resetting migration..."
+	@echo "Dropping and recreating database..."
+	@cd $(ROOT)/.. && docker compose exec db mysql -u root -p$(MYSQL_ROOT_PASSWORD) -e "DROP DATABASE IF EXISTS $(MYSQL_DATABASE); CREATE DATABASE $(MYSQL_DATABASE);"
+	$(MAKE) migrate
+	@echo "Migration reset completed."
 
 # Push schema directly (dev only)
 push:
+	@echo "Pushing schema..."
 	(cd $(ROOT) && npx drizzle-kit push)
+	@echo "Schema push completed."
 
 # Open Drizzle Studio
 studio:
+	@echo "Starting Drizzle Studio..."
 	(cd $(ROOT) && npx drizzle-kit studio)
 
 # Run seed script (local by default; use ENV=production for production)
 seed:
+	@echo "Running seed script..."
 	(cd $(ROOT) && ENV=$(ENV) NODE_ENV=$(ENV) npx tsx db/seed.ts)
+	@echo "Seed completed."
 
 # Run seed script against production database
 seed-production:
+	@echo "Running seed script against production..."
 	(cd $(ROOT) && ENV=production NODE_ENV=production npx tsx db/seed.ts)
+	@echo "Production seed completed."
