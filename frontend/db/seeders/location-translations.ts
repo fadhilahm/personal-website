@@ -18,5 +18,9 @@ export async function seedLocationTranslations(db: MySql2Database) {
       city: 'ジャカルタ',
     },
     { locationId: 4, localeId: 2, country: 'インドネシア', province: '西ジャワ', city: 'バンドン' },
+    { locationId: 1, localeId: 3, country: 'Jepang', province: 'Osaka', city: 'Osaka' },
+    { locationId: 2, localeId: 3, country: 'Jepang', province: 'Aichi', city: 'Nagoya' },
+    { locationId: 3, localeId: 3, country: 'Indonesia', province: 'Jakarta', city: 'Jakarta' },
+    { locationId: 4, localeId: 3, country: 'Indonesia', province: 'Jawa Barat', city: 'Bandung' },
   ]);
 }

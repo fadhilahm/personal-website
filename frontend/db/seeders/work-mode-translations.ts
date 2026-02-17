@@ -10,5 +10,8 @@ export async function seedWorkModeTranslations(db: MySql2Database) {
     { workModeId: 1, localeId: 2, name: '出勤' },
     { workModeId: 2, localeId: 2, name: 'リモート' },
     { workModeId: 3, localeId: 2, name: 'ハイブリッド' },
+    { workModeId: 1, localeId: 3, name: 'Di kantor' },
+    { workModeId: 2, localeId: 3, name: 'Remote' },
+    { workModeId: 3, localeId: 3, name: 'Hibrida' },
   ]);
 }

@@ -10,5 +10,8 @@ export async function seedEmploymentTypeTranslations(db: MySql2Database) {
     { employmentTypeId: 1, localeId: 2, name: '正社員' },
     { employmentTypeId: 2, localeId: 2, name: '契約' },
     { employmentTypeId: 3, localeId: 2, name: 'パートタイム' },
+    { employmentTypeId: 1, localeId: 3, name: 'Penuh waktu' },
+    { employmentTypeId: 2, localeId: 3, name: 'Kontrak' },
+    { employmentTypeId: 3, localeId: 3, name: 'Paruh waktu' },
   ]);
 }

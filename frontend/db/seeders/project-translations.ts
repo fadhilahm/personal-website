@@ -139,5 +139,73 @@ export async function seedProjectTranslations(db: MySql2Database) {
       description:
         'マイクロサービス監視、Azure Service Bus、Kafka。Elasticsearch、Kibana、分散トレーシング。',
     },
+    {
+      projectId: 1,
+      localeId: 3,
+      name: 'E-dash',
+      description:
+        'Platform SaaS berbasis cloud yang mengotomatisasi perhitungan emisi CO2 dan pelaporan ESG untuk perusahaan. Melayani 460+ perusahaan.',
+    },
+    {
+      projectId: 2,
+      localeId: 3,
+      name: 'Cosmos',
+      description:
+        'Alat untuk membantu tim CS mengelola faktur. Sistem komentar untuk komunikasi tim. Memproses 5000+ faktur per bulan.',
+    },
+    {
+      projectId: 3,
+      localeId: 3,
+      name: 'Layanan OIDC Authentication (e-dash)',
+      description:
+        'Manajemen pengguna untuk layanan multi-perusahaan. Integrasi Auth0, ramah seluler. Mengamankan 100+ pengguna enterprise.',
+    },
+    {
+      projectId: 4,
+      localeId: 3,
+      name: 'Layanan Pemantauan Arus Listrik',
+      description:
+        'Sistem full-stack menerima dan menampilkan data arus listrik untuk deteksi anomali dan pengurangan biaya. Go, Next.js, Terraform, ECS.',
+    },
+    {
+      projectId: 5,
+      localeId: 3,
+      name: 'Layanan Pemantauan Stream',
+      description:
+        'Perangkat mengirim stream ke server, dapat ditonton via aplikasi web dengan latensi rendah. Node.js/TypeScript, Vue.js, AWS.',
+    },
+    {
+      projectId: 6,
+      localeId: 3,
+      name: 'Layanan OIDC Authentication (Traffic Sim)',
+      description: 'Autentikasi dengan 2FA, terintegrasi dengan semua aplikasi perusahaan.',
+    },
+    {
+      projectId: 7,
+      localeId: 3,
+      name: 'Modul Chemical Huff and Puff',
+      description:
+        'Modul untuk perangkat lunak Pertamina. Implementasi ML pertama di sistem.',
+    },
+    {
+      projectId: 8,
+      localeId: 3,
+      name: 'Machine Learning untuk Minyak & Gas',
+      description: 'Penelitian penerapan ML. Menerbitkan makalah di Jurnal IATMI.',
+    },
+    {
+      projectId: 9,
+      localeId: 3,
+      name: 'Help - Aplikasi Agregasi Pengiriman',
+      description:
+        'Aplikasi untuk mengagregasi layanan pengiriman dengan biaya termurah. ShopeePay, antrian, optimasi SQL.',
+    },
+    {
+      projectId: 10,
+      localeId: 3,
+      name: 'Tim Mikroservis (USJ)',
+      description:
+        'Memantau mikroservis, Azure Service Bus, Kafka. Elasticsearch, Kibana, distributed tracing.',
+    },
   ]);
 }

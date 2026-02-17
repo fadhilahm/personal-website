@@ -75,14 +75,53 @@ export async function seedCompanyTranslations(db: MySql2Database) {
       companyId: 5,
       localeId: 2,
       name: 'PT. ソルシ・ラヤナン・デジタル（Help）',
-      description:
-        '配送サービスを集約し、最安値で荷物を送れるアプリを開発したスタートアップ。',
+      description: '配送サービスを集約し、最安値で荷物を送れるアプリを開発したスタートアップ。',
     },
     {
       companyId: 6,
       localeId: 2,
       name: 'Traffic Sim Co., Ltd',
       description: '放送会社向けの各種サービス・ハードウェアを提供する企業。',
+    },
+    {
+      companyId: 1,
+      localeId: 3,
+      name: 'e-dash',
+      description:
+        'Perusahaan teknologi lingkungan didukung Mitsui & Co., menyediakan pelacakan emisi CO2 berbasis cloud dan solusi dekarbonisasi untuk perusahaan dan pemerintah daerah.',
+    },
+    {
+      companyId: 2,
+      localeId: 3,
+      name: 'Universal Studios Japan (via Allegis Group Japan K.K.)',
+      description:
+        'Perusahaan teknologi digital yang menyediakan pengalaman hiburan dan layanan platform digital untuk jutaan pengunjung global.',
+    },
+    {
+      companyId: 3,
+      localeId: 3,
+      name: 'PT LAPI ITB',
+      description: 'Perusahaan riset di bawah pemerintah Indonesia.',
+    },
+    {
+      companyId: 4,
+      localeId: 3,
+      name: 'GADA ENERGI ITB',
+      description: 'Lembaga riset energi di bawah Jurusan Teknik Perminyakan.',
+    },
+    {
+      companyId: 5,
+      localeId: 3,
+      name: 'PT. Solusi Layanan Digital (Help)',
+      description:
+        'Startup yang membuat aplikasi agregasi layanan pengiriman agar pengguna dapat mengirim barang dengan biaya termurah.',
+    },
+    {
+      companyId: 6,
+      localeId: 3,
+      name: 'Traffic Sim Co., Ltd',
+      description:
+        'Perusahaan yang menyediakan berbagai layanan dan perangkat keras untuk perusahaan penyiaran.',
     },
   ]);
 }

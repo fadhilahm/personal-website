@@ -14,5 +14,10 @@ export async function seedTechStackCategoryTranslations(db: MySql2Database) {
     { techStackCategoryId: 3, localeId: 2, name: 'フレームワーク / ライブラリ' },
     { techStackCategoryId: 4, localeId: 2, name: 'クラウド・DevOps' },
     { techStackCategoryId: 5, localeId: 2, name: 'その他' },
+    { techStackCategoryId: 1, localeId: 3, name: 'Bahasa Pemrograman' },
+    { techStackCategoryId: 2, localeId: 3, name: 'Basis Data' },
+    { techStackCategoryId: 3, localeId: 3, name: 'Framework / Pustaka' },
+    { techStackCategoryId: 4, localeId: 3, name: 'Cloud dan DevOps' },
+    { techStackCategoryId: 5, localeId: 3, name: 'Lainnya' },
   ]);
 }

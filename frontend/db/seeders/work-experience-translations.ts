@@ -100,5 +100,53 @@ export async function seedWorkExperienceTranslations(db: MySql2Database) {
 - ストリーム監視：Node.js/TypeScript、Vue.js、UX改善
 - OIDC認証：2FA、全社アプリケーションと連携`,
     },
+    {
+      workExperienceId: 1,
+      localeId: 3,
+      positionTitle: 'Pengembang Perangkat Lunak Full-stack',
+      description: `- Bekerja sebagai pengembang full-stack di E-dash (Go, Next.js, AWS) - Perhitungan emisi CO2 dan pelaporan ESG untuk 460+ perusahaan
+- Cosmos: alat manajemen faktur untuk tim CS, sistem komentar, 5000+ faktur per bulan
+- Layanan OIDC Authentication: manajemen pengguna untuk 100+ pengguna enterprise, integrasi Auth0, ramah seluler`,
+    },
+    {
+      workExperienceId: 2,
+      localeId: 3,
+      positionTitle: 'Pengembang NodeJS',
+      description: `- Memantau mikroservis terdistribusi (Azure Service Bus, Kafka)
+- Mengembangkan fitur baru dan triase cacat dengan tim global (GitLab, JIRA, Confluence)
+- Debug masalah sistem terdistribusi kompleks menggunakan Elasticsearch, Kibana, distributed tracing`,
+    },
+    {
+      workExperienceId: 3,
+      localeId: 3,
+      positionTitle: 'Insinyur Perangkat Lunak',
+      description: `- Mengembangkan modul Chemical Huff and Puff untuk perangkat lunak Pertamina
+- Memperkenalkan machine learning untuk pertama kalinya di perangkat lunak
+- Memimpin implementasi ML untuk modul lain`,
+    },
+    {
+      workExperienceId: 4,
+      localeId: 3,
+      positionTitle: 'Peneliti',
+      description: `- Meneliti penerapan machine learning di industri minyak dan gas
+- Memimpin tim 3 orang dalam membuat makalah penelitian
+- Menerbitkan di Jurnal IATMI: "Penerapan Artificial Neural Network untuk Mengidentifikasi Zona Potensial Re-perforasi"`,
+    },
+    {
+      workExperienceId: 5,
+      localeId: 3,
+      positionTitle: 'Pengembang Backend',
+      description: `- Mengembangkan fitur dan memelihara AWS dengan Node.js
+- Integrasi ShopeePay, sistem antrian, optimasi SQL untuk CMS
+- Berkolaborasi dengan Bitbucket dan Jira`,
+    },
+    {
+      workExperienceId: 6,
+      localeId: 3,
+      positionTitle: 'Insinyur Perangkat Lunak',
+      description: `- Layanan Pemantauan Arus Listrik: Full-stack (Go, Next.js), Terraform, ECS, Clean Architecture
+- Pemantauan Stream: Node.js/TypeScript, Vue.js, peningkatan UX
+- OIDC Authentication: 2FA, terintegrasi dengan aplikasi perusahaan`,
+    },
   ]);
 }
