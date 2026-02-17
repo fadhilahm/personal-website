@@ -1,8 +1,13 @@
 /**
  * Seed script based on CV - Fadhilah Metra
  * Run: make seed (from frontend/db) or npx tsx db/seed.ts (from frontend)
+ * For production: make seed-production or ENV=production npx tsx db/seed.ts
  */
-import 'dotenv/config';
+// eslint-disable-next-line import/no-extraneous-dependencies -- seed script runs outside Next.js build
+import { config } from 'dotenv';
+
+const env = process.env.ENV ?? process.env.NODE_ENV ?? process.env.APP_ENV ?? 'local';
+config({ path: env === 'production' ? '.env.production' : '.env' });
 
 import {
   seedCompanies,

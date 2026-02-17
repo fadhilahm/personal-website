@@ -1,5 +1,10 @@
-import 'dotenv/config';
+import { config } from 'dotenv';
 import { defineConfig } from 'drizzle-kit';
+
+// Load env file based on environment (ENV and NODE_ENV use the same value)
+const env = process.env.ENV ?? process.env.NODE_ENV ?? process.env.APP_ENV ?? 'local';
+const envFile = env === 'production' ? '.env.production' : '.env';
+config({ path: envFile });
 
 function getDatabaseUrl(): string {
   if (process.env.DATABASE_URL) {
