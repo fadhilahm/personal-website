@@ -8,3 +8,8 @@ output "environment_id" {
   description = "Railway environment ID for DB variables"
 }
 
+output "tcp_proxy_port" {
+  value       = railway_tcp_proxy.mysql.proxy_port
+  description = "Public port for external MySQL access (host shown in Railway dashboard)"
+}
+

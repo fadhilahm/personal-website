@@ -42,3 +42,9 @@ resource "railway_variable" "mysql_root_password" {
   service_id     = railway_service.mysql.id
 }
 
+resource "railway_tcp_proxy" "mysql" {
+  environment_id   = railway_environment.db.id
+  service_id       = railway_service.mysql.id
+  application_port = 3306
+}
+
