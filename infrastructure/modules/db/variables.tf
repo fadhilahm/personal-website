@@ -1,45 +1,32 @@
-variable "railway_project_id" {
-  type        = string
-  description = "Railway project ID"
-}
-
-variable "railway_environment_name" {
-  type        = string
-  description = "Railway environment name for service variables"
-}
-
-variable "db_name" {
+variable "database" {
   type        = string
   description = "Railway MySQL database name"
 }
 
-variable "db_user" {
+variable "host" {
   type        = string
-  description = "Railway MySQL database user"
+  description = "Railway MySQL internal host"
 }
 
-variable "db_password" {
-  type        = string
-  description = "Railway MySQL database user password"
-  sensitive   = true
+variable "port" {
+  type        = number
+  description = "Railway MySQL port"
 }
 
-variable "db_root_password" {
+variable "password" {
   type        = string
   description = "Railway MySQL root password"
   sensitive   = true
 }
 
-variable "db_volume_enabled" {
-  type        = bool
-  description = "Whether to provision a Railway volume for MySQL"
-  default     = true
-}
-
-variable "db_volume_name" {
+variable "url" {
   type        = string
-  description = "Optional Railway volume name override"
-  default     = null
-  nullable    = true
+  description = "Internal MySQL connection URL (accessible within Railway only)"
+  sensitive   = true
 }
 
+variable "public_url" {
+  type        = string
+  description = "Public MySQL connection URL via TCP proxy"
+  sensitive   = true
+}
