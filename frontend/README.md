@@ -54,6 +54,14 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
+## Backend Testing
+
+We're using vitest to test our backend components. See the Makefile to know which instruction to use for that.
+
+```bash
+make run_be
+```
+
 ## Component Testing
 
 This project follows a **comprehensive testing strategy** using multiple tools to ensure component quality and reliability.
