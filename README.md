@@ -11,6 +11,10 @@ The main page used to show off my profile to potential recruiters. It also acts 
 - [Docker](https://www.docker.com/get-started) and Docker Compose
 - [Make](https://www.gnu.org/software/make/) (usually pre-installed on macOS/Linux)
 
+## Before running docker-compose
+
+Create an `.env` file by following `.env.example` file and fill its values.
+
 ## Quick Start
 
 The easiest way to see all available commands is to use the Makefile:

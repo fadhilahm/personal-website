@@ -3,11 +3,20 @@
 # Colors for formatting
 YELLOW := \033[33m
 CYAN := \033[36m
+BOLD := \033[1m
 RESET := \033[0m
 
 # Show available commands and their descriptions
 help:
-	@printf "\nUsage: make ${CYAN}[target]${RESET}\n\nTargets:\n"
+	@printf "\n${BOLD}${CYAN}"
+	@printf "___________                     __                     .___ \n"
+	@printf "\\_   _____/______  ____   _____/  |_  ____   ____    __| _/ \n"
+	@printf " |    __) \\_  __ \\/  _ \\ /    \\   __\\/ __ \\ /    \\  / __ |  \n"
+	@printf " |     \\   |  | \\(  <_> )   |  \\  | \\  ___/|   |  \\/ /_/ |  \n"
+	@printf " \\___  /   |__|   \\____/|___|  /__|  \\___  >___|  \\____ |  \n"
+	@printf "     \\/                      \\/          \\/     \\/      \\/  \n"
+	@printf "${RESET}\n"
+	@printf "Usage: make ${CYAN}[target]${RESET}\n\nTargets:\n"
 	@awk '/^[a-zA-Z0-9_-]+:/ { \
 		helpMessage = match(lastLine, /^# (.*)/); \
 		if (helpMessage) { \

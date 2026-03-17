@@ -1,0 +1,15 @@
+{
+  "extends": "./frontend/tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": ["./frontend/components/*"],
+      "@config/*": ["./frontend/config/*"],
+      "@constants/*": ["./frontend/constants/*"],
+      "@images/*": ["./frontend/public/images/*"],
+      "@/*": ["./frontend/*"]
+    }
+  },
+  "include": ["frontend/**/*.ts", "frontend/**/*.tsx"],
+  "exclude": ["node_modules"]
+}

@@ -21,7 +21,7 @@ Before working with this infrastructure code, ensure you have the following inst
    ```bash
    # macOS
    brew install terraform
-   
+
    # Or download from https://www.terraform.io/downloads
    ```
 
@@ -30,7 +30,7 @@ Before working with this infrastructure code, ensure you have the following inst
    ```bash
    # macOS
    brew install --cask 1password-cli
-   
+
    # Or follow: https://developer.1password.com/docs/cli/get-started
    ```
 
@@ -69,6 +69,10 @@ openssl rand -base64 24
 1. Create the website manually through Netlify.
 1. Copy the necessary ID for the website into the `frontend` module configuration here.
 1. Change the value in the config files if you want to modify the setting for the Front End deployment.
+
+## How the Database is Managed
+
+Due to the fact that the railway package for terraform is only community-managed, there are a lot of missing features when I tried to manage the database purely through terraform. That's why, I manage it through railway's own UI.
 
 ## Credits
 
