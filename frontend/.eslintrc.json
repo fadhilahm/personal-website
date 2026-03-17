@@ -27,7 +27,7 @@
     "import/no-extraneous-dependencies": [
       "error",
       {
-        "devDependencies": ["**/*.stories.*", "**/*.test.*", "**/tailwind.config.*","**/drizzle.config.*"]
+        "devDependencies": ["**/*.stories.*", "**/*.test.*", "**/tailwind.config.*", "**/drizzle.config.*", "**/vitest.config.*"]
       }
     ],
     "react/function-component-definition": [
