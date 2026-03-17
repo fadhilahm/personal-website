@@ -22,12 +22,6 @@ variable "github_repo" {
   default     = "fadhilahm/personal-website"
 }
 
-variable "environment" {
-  type        = string
-  description = "Environment name"
-  default     = "production"
-}
-
 variable "custom_domain" {
   type        = string
   description = "Custom domain"

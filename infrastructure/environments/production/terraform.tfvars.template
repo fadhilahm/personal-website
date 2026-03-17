@@ -4,15 +4,3 @@ site_id = "op://personal-website/netlify_config/site_id"
 team_id = "op://personal-website/netlify_config/team_id"
 custom_domain = "op://personal-website/netlify_config/custom_domain"
 
-# Infrastructure
-railway_api_token = "op://personal-website/railway_api_token/credential"
-railway_project_id = "op://personal-website/railway_config/project_id"
-railway_environment_name = "op://personal-website/railway_config/environment_name"
-
-# DB
-database = "op://personal-website/db_config/database"
-host = "op://personal-website/db_config/host"
-port = "op://personal-website/db_config/port"
-password = "op://personal-website/db_config/password"
-url = "op://personal-website/db_config/url"
-public_url = "op://personal-website/db_config/public_url"
