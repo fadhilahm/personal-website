@@ -10,9 +10,9 @@ railway_project_id = "op://personal-website/railway_config/project_id"
 railway_environment_name = "op://personal-website/railway_config/environment_name"
 
 # DB
-db_name = "op://personal-website/db_config/name"
-db_user = "op://personal-website/db_config/user"
-db_password = "op://personal-website/db_config/password"
-db_root_password = "op://personal-website/db_config/root_password"
-db_volume_enabled = true
-db_volume_name = null
+database = "op://personal-website/db_config/database"
+host = "op://personal-website/db_config/host"
+port = "op://personal-website/db_config/port"
+password = "op://personal-website/db_config/password"
+url = "op://personal-website/db_config/url"
+public_url = "op://personal-website/db_config/public_url"
